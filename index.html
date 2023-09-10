@@ -12,6 +12,14 @@
 
     gtag('config', 'G-FZYHPBJ2NN');
     </script>
+    <!--script>
+        function Expand(id) {
+            //function to expand a section on indirect click
+            var x = document.getElementById(id);
+            //FIXME doesn't work
+            x.classList.add("show");
+        }
+    </script-->
 
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
@@ -46,24 +54,26 @@
                             <a href="images/karannb.jpg"><img style="width:100%;max-width:100%" alt="profile photo" src="images/karannb.jpg" class="img-circle"></a>
                         </td>
                         <td style="padding:2.5%;width:60%;vertical-align:middle">
-                            <p style="text-align:center">
-                                <h1  style="text-align:center"><name>Karan Bania</name></h1>
-                            </p>
-                            <p style="text-align:center">
-                            &nbsp-&nbsp
-                            <a href="#news" onclick=Expand("news")>News</a>
-                            &nbsp-&nbsp
-                            <a href="#experience" onclick=Expand("experience")>Experience</a>
-                            &nbsp-&nbsp
-                            <a href="#projects" onclick=Expand("projects")>Projects</a>
-                            &nbsp-&nbsp
-                            <a href="mailto:karan.bania.9@gmail.com">Contact</a>
-                            &nbsp-&nbsp
-                            <a href="mailto:f20212582@goa.bits-pilani.ac.in">Alt. Contact</a>
-                            &nbsp-&nbsp
-                            <a href="tel:+917069863756">Phone</a>
-                            &nbsp-&nbsp
-                            </p>
+                            <div>
+                                <p style="text-align:center">
+                                    <h1  style="text-align:center"><name>Karan Bania</name></h1>
+                                </p>
+                                <p style="text-align:center">
+                                &nbsp-&nbsp
+                                <a href="#updates" onclick="Expand(updates);">Updates</a>
+                                &nbsp-&nbsp
+                                <a href="#experience" onclick="Expand(experience);">Experience</a>
+                                &nbsp-&nbsp
+                                <a href="#projects" onclick="Expand(projects)">Projects</a>
+                                &nbsp-&nbsp
+                                <a href="mailto:karan.bania.9@gmail.com">Contact</a>
+                                &nbsp-&nbsp
+                                <a href="mailto:f20212582@goa.bits-pilani.ac.in">Alt. Contact</a>
+                                &nbsp-&nbsp
+                                <a href="tel:+917069863756">Phone</a>
+                                &nbsp-&nbsp
+                                </p>
+                            </div>
                         </td>
                         <td style="padding:2.5%;width:10%;max-width:10%">
                         </td>
@@ -121,9 +131,9 @@
 <!-- News -->
 
                 <!-- <br> -->
-                <button style="border:5px transparent; background-color: transparent; outline:transparent; border-radius:10px;"type="button" class="collapsible" data-toggle="collapse" data-target="#content-news" id="news"><heading>News</heading></button>
+                <button style="border:5px transparent; background-color: khaki; outline:transparent; border-radius:10px;" type="button" class="collapsible" data-toggle="collapse" data-target="#content-updates" id="updates"><heading>Updates</heading></button>
                 <!-- <div class="container"> -->
-                <div id="content-news" class="collapse in">
+                <div id="content-updates" class="collapse in">
                 <!-- <div class="scroll">  -->
 
                 <table border=0 class="bg_colour" style="padding:10px;width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
@@ -199,7 +209,7 @@
 
 <!-- Experience -->
 
-                <button style="border:5px transparent; background-color: transparent; outline:transparent; border-radius:10px;"type="button" class="collapsible" data-toggle="collapse" data-target="#content-experience" id="experience"><heading>Experience</heading></button>
+                <button style="border:5px transparent; background-color: khaki; outline:transparent; border-radius:10px;"type="button" class="collapsible" data-toggle="collapse" data-target="#content-experience" id="experience"><heading>Experience</heading></button>
                 <div id="content-experience" class="collapse out">
 
                 <table border=0 class="bg_colour" style="padding:20px;width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
@@ -273,7 +283,7 @@
 
 <!-- Projects -->
 
-                <button style="border:5px transparent; background-color: transparent; outline:transparent; border-radius:10px;"type="button" class="collapsible" data-toggle="collapse" data-target="#content-projects" id="projects"><heading>Projects</heading></button>
+                <button style="border:5px transparent; background-color: khaki; outline:transparent; border-radius:10px;"type="button" class="collapsible" data-toggle="collapse" data-target="#content-projects" id="projects"><heading>Projects</heading></button>
                 <div id="content-projects" class="collapse out">
 
                 <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
@@ -321,7 +331,7 @@
 
 <!-- Other Stuff -->
 
-                <button style="border:5px transparent; background-color: transparent; outline:transparent; border-radius:10px;"type="button" class="collapsible" data-toggle="collapse" data-target="#content-other" id="other"><heading>(A lot of) Other stuff</heading></button>
+                <button style="border:5px transparent; background-color: khaki; outline:transparent; border-radius:10px;"type="button" class="collapsible" data-toggle="collapse" data-target="#content-other" id="other"><heading>(A lot of) Other stuff</heading></button>
                 <div id="content-other" class="collapse out">
                 <table border=0 class="bg_colour" style="padding:10px;width:100%;border:0px;border-spacing:10px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
 
