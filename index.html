@@ -60,6 +60,10 @@
     <h3>News</h3>
     <ul style="text-align: left; max-width: 800px;">
         <li>
+            <i>10/24</i> - arXiv reports of two projects I have been working on for the last 6 months are here,
+            [<a href="https://arxiv.org/abs/2410.22862">ataxia-sync</a>] & a part of [<a href="https://arxiv.org/abs/2410.20600">Radio-LM</a>].
+        </li>
+        <li>
             <i>09/24</i> - Got a placement offer from <a href="https://gan.ai/">Gan.AI</a>!
         </li>
         <li>
@@ -144,51 +148,57 @@
     <ul style="text-align: left; max-width: 800px;">
         <li>
             <p style="color:rgb(94, 98, 98)">
-                <b>APPCAIR I</b> <!-- / <b>Ataxia-Sync</b> -->
+                <b>APPCAIR-I</b> / <b>Ataxia-Sync</b>
                 <img src="images/BITSPilani_logo.png" width="36" height="36">
             </p>
             <p>
-                <!-- Contributing two-fold with a processed / augmented dataset along with a novel GNN based spatio-temproal model that processes GAIT Cycles of patients with Ataxia. 
-                    This model is being used to predict the severity of Ataxia in patients. 
-                    The model is very efficient and can be deployed on edge devices.
-                -->
-                This project's report is under review at a double-blind venue. 
-                Details soon.
+                Developed a complete pipeline around Spatio-temporal GNNs capable of 
+                diagnosing Ataxia in patients and it's severity,
+                runs on low compute devices.
+                <br>
+                Out on <a href="https://arxiv.org/abs/2408.06261">arXiv</a>.
+                More details after the review process.
             </p>
         </li>
         <li>
             <p style="color:rgb(94, 98, 98)">
-                <b>APPCAIR II</b> / <b>Radio-LM</b>
+                <b>APPCAIR-II</b> / <b>Radio-LM</b>
                 <img src="images/Macquarie.png" width="30" height="36">
                 <img src="images/appcair_logo.jpg" width="45" height="45">
                 <img src="images/BITSPilani_logo.png" width="36" height="36">
             </p>
             <p>
-                Working on a novel pseudo replacement to RLHF through prompting. 
-                This project also involves creating a modified model with this pseudo-RLHF and then uing it to find a <b>Human-window</b> of LLM explanation-understandability, in corroboration with Donald Michie's work. 
-                We are testing this theory on Radiology/Med students. 
+                The project revolves around finding harmful / beneficial aspects of LLMs and their explanations.
+                We are testing this using Radiology/Med students. 
+                This has been studied in the past by Donald Michie who proposed a "human-window" of task-doability.
+                <br>
                 This work's presentation led to the first prize in ACM event, <a href="https://docs.google.com/presentation/d/1cgqOCkLUlZULUnKfNyfb5xOiYnrGhVsb/edit?usp=sharing&ouid=103617805505848253890&rtpof=true&sd=true">slides</a>.
                 <br>
-                Results on the way ;)
+                This work also takes inspiration from the PXP protocol (<a href="https://arxiv.org/abs/2410.20600">arXiv</a>), 
+                for which, I have co-developed an implementation <a href="https://github.com/karannb/interact">GitHub</a>.
             </p>
         </li>
         <li>
             <p style="color:rgb(94, 98, 98)">
-                <b>DeepChem</b>
+                <b>DeepForestSciences</b>
                 <img src="images/deepchem_logo.png" width="36" height="40">
+                <img src="images/Applied_Materials_Logo.svg.png" width="115" height="36">
             </p>
             <p>
-                Contributing to the <a href="https://deepchem.io">DeepChem</a> library. 
-                As of now I have contributed to the <a href="https://deepchem.io/tutorials/introduction-to-material-science/">Introduction to Materials Science</a> Tutorial. 
-                Also co-developed MolGAN and Normalizing Flow implementations in PyTorch. 
-                The abstract from that work from here has been accepted at <a href="https://portal.ml4dd.com/moml-2024">MoML</a> 2024. 
-                I also developed the tutorials for them. 
-                [<a href="https://deepchem.io/tutorials/generating-molecules-with-molgan/">MolGAN</a>]
-                [<a href="https://deepchem.io/tutorials/training-a-normalizing-flow-on-qm9/">NormFlows</a>]
-                [<a href="https://arxiv.org/abs/2408.06261">Preprint</a>]
-                I am currently working on an "Equivariant Modelling in Materials Science" tutorial.
-                This project's report is under review at another double-blind venue.
-                More details soon.
+                Contributing to the <a href="https://deepchem.io">DeepChem</a> library.
+                I am actively developing the Materials Science section; as a part of which I have edited to the 
+                <a href="https://deepchem.io/tutorials/introduction-to-material-science/">Introduction to Materials Science</a> Tutorial. 
+                I am adding several more basic-equivariance tutorials, as well as developing a pipeline for arbitrary property optimization in Materials Science 
+                (along with Applied Materials!).
+                <br>
+                Previously, I co-developed MolGAN and Normalizing Flow implementations in PyTorch. 
+                This work (<a href="https://arxiv.org/abs/2408.06261">arXiv</a>) has been accepted at 
+                <a href="https://portal.ml4dd.com/moml-2024">MoML</a>'24, 
+                <a href="https://baylearn-org.github.io/www/">BayLearn</a>'24,
+                and also <a href="https://ml4physicalsciences.github.io/2024/">ML4PS @ NeurIPS</a>'24.
+                I also developed the tutorials for them, 
+                <a href="https://deepchem.io/tutorials/generating-molecules-with-molgan/">MolGAN</a>,
+                <a href="https://deepchem.io/tutorials/training-a-normalizing-flow-on-qm9/">NormFlows</a>.
             </p>
         </li>
         <li>
@@ -200,7 +210,7 @@
                 This is a student-led reproduction of the Google Brain paper <a href="https://arxiv.org/abs/2302.12066">Teaching CLIP to Count to Ten</a>.
                 We developed novel (incremental) augmentations to the loss function, which showed improvement in our small scale experiments. 
                 Apart from this, we created data processing pipelines and also made their evaluation dataset completely public. 
-                This work has been submitted to ReScience C, [<a href="https://arxiv.org/abs/2406.03586">Preprint</a>]
+                This work has been submitted to ReScience C, <a href="https://arxiv.org/abs/2406.03586">arXiv</a>.
             </p>
         </li>
         <li>
@@ -214,15 +224,6 @@
                 Details soon.
             </p>
         </li>
-        <!-- <li>
-            <p style="color:rgb(94, 98, 98)">
-                <b>Adaptive MoE Decoders</b>
-                <img src="images/USC.png" width="36" height="36">
-            </p>
-            <p>
-                This project is a part of my ongoing Research Assistantship at the INK Lab, USC. Details soon.
-            </p>
-        </li> -->
     </ul>
     <br>
 
@@ -260,11 +261,11 @@
         This is a list of random things, papers, tutorials, pictures, etc. that I find interesting.
         <ul>
             <li>
-                My unique email count just hit 4! xD (
-                    karan.bania.9@gmail.com, 
-                    fxxxxxxxx@goa.bits-pilani.ac.in, 
-                    karan.bania@edu.ruhr-uni-bochum.de, 
-                    karan@deepforestsci.com)
+                I am quite frequently asked by juniors on how to start learning machine-learning, and I recently took a small session on it,
+                <a href="https://docs.google.com/presentation/d/1YfSpsF1VzESRTsmBJULyO1ndjawNZA62TKIo6HdblPU/edit?usp=sharing">Slides</a>.
+            </li>
+            <li>
+                My unique email count just hit 4! xD (a@gmail.com, b@goa.bits-pilani.ac.in, c@edu.ruhr-uni-bochum.de, d@deepforestsci.com)
             </li>
             <li>
                 [The NIPS'14 Experiment] <a href="https://inverseprobability.com/talks/notes/the-neurips-experiment.html">Interesting</a> read.
