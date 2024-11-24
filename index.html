@@ -16,6 +16,38 @@
     <link rel="icon" type="image/png" href="images/candle.jpg">
 </head>
 
+<style>
+    /* Hide the default triangle */
+    details > summary {
+        list-style: none;
+        cursor: pointer;
+        position: relative;
+        padding-left: 15px;
+        align-items: center;  /* Vertical alignment */
+    }
+    
+    /* Remove the default marker in Firefox */
+    details > summary::-webkit-details-marker,
+    details > summary::marker {
+        display: none;
+    }
+    
+    /* Create custom + indicator */
+    details > summary:before {
+        content: '+';
+        position: absolute;
+        left: 0;
+        color: dodgerblue;
+        align-items: center;
+        height: 100%;
+    }
+    
+    /* Change to - when open */
+    details[open] > summary:before {
+        content: '-';
+    }
+</style>
+
 <body>
 
 
@@ -58,8 +90,11 @@
     <h3>News</h3>
     <ul style="text-align: left; max-width: 800px;">
         <li>
-            <i>10/24</i> - arXiv reports of two projects I have been working on for the last 6 months are here,
-            [<a href="https://arxiv.org/abs/2410.22862">ataxia-sync</a>] & a part of [<a href="https://arxiv.org/abs/2410.20600">Radio-LM</a>].
+            <i>11/24</i> - My DAAD WISE project was recently released as an <a href="https://arxiv.org/abs/2411.12603">arXiv</a> report.
+        </li>
+        <li>
+            <i>10/24</i> - Both of my APPCAIR projects' arXiv reports were released, <a href="https://arxiv.org/abs/2410.22862">ataxia-sync</a>
+             & a part of <a href="https://arxiv.org/abs/2410.20600">Radio-LM</a>.
         </li>
         <li>
             <i>09/24</i> - Got a placement offer from <a href="https://gan.ai/">Gan.AI</a>!
@@ -91,9 +126,6 @@
             [<a href="https://github.com/SforAiDl/SAiDL-Spring-2024-Induction-Assignment">Link</a>]
             Fill out this <a href="https://forms.gle/WixhqzGdo3ZjUww98">form</a> and join the <a href="https://join.slack.com/t/saidl/shared_invite/zt-1al0wkfhz-HzI7hLkWkOhBpP1zaGGSVg">Slack</a> workspace for any doubts. Looking forward to your submissions!
         </li>
-        <!-- <li>
-            <i>02/24</i> - Started my Research Assistantship at the <a href="https://inklab.usc.edu">INK Lab</a> at University of Southern California.
-        </li> -->
         <li>
             <i>02/24</i> - Selected for the <a href="https://www2.daad.de/deutschland/stipendium/datenbank/en/21148-scholarship-database/?detail=50015295">DAAD WISE program</a> (one of 250 undergraduates from India) at RUB, Germany for summer 2024! 
             <a href="https://www.ini.rub.de/">Institut Für Neuroinformatik</a> will be hosting me.
@@ -142,83 +174,139 @@
         Projects
     -->
     <h3>Projects & Publications</h3>
-    <ul style="text-align: left; max-width: 800px;">
+    <ul style="text-align: left">
+        <!-- ESML -->
         <li>
-            <p style="color:rgb(94, 98, 98)">
-                <b>APPCAIR-I</b> / <b>Ataxia-Sync</b>
-                <img src="images/bits-logo.png" width="36" height="36">
+            <p>
+                <b>STREAM: A Universal State-Space Model for Sparse Geometric Data</b>
+                [<a href="https://arxiv.org/abs/2411.12603">arXiv</a>]
+                <img src="images/rub-logo.png" width="56" height="36">
+                <img src="images/daad-logo.png" width="36" height="36">
+                <br>
+                Mark Schöne*, Yash Bhisikar*, Karan Bania*, Khaleelulla Khan Nazeer, Christian Mayr, Anand Subramoney, David Kappel
             </p>
             <p>
-                Developed a complete pipeline around Spatio-temporal GNNs capable of 
-                diagnosing Ataxia in patients and it's severity,
-                runs on low compute devices.
-                <br>
-                Out on <a href="https://arxiv.org/abs/2408.06261">arXiv</a>.
-                More details after the review process.
+                <details>
+                    <summary style="color: dodgerblue;">abstract</summary>
+                    <br>
+                    Handling sparse and unstructured geometric data, such as point clouds or event-based vision, is a pressing challenge in the field of machine vision. 
+                    Recently, sequence models such as Transformers and state-space models entered the domain of geometric data. 
+                    These methods require specialized preprocessing to create a sequential view of a set of points. 
+                    Furthermore, prior works involving sequence models iterate geometric data with either uniform or learned step sizes, implicitly relying on the model to infer the underlying geometric structure. 
+                    In this work, we propose to encode geometric structure explicitly into the parameterization of a state-space model. 
+                    State-space models are based on linear dynamics governed by a one-dimensional variable such as time or a spatial coordinate. 
+                    We exploit this dynamic variable to inject relative differences of coordinates into the step size of the state-space model. 
+                    The resulting geometric operation computes interactions between all pairs of N points in O(N) steps. 
+                    Our model deploys the Mamba selective state-space model with a modified CUDA kernel to efficiently map sparse geometric data to modern hardware. 
+                    The resulting sequence model, which we call STREAM, achieves competitive results on a range of benchmarks from point-cloud classification to event-based vision and audio classification. 
+                    STREAM demonstrates a powerful inductive bias for sparse geometric data by improving the PointMamba baseline when trained from scratch on the ModelNet40 and ScanObjectNN point cloud analysis datasets. 
+                    It further achieves, for the first time, 100% test accuracy on all 11 classes of the DVS128 Gestures dataset.
+                </details>
             </p>
         </li>
+        <!-- ATAXIA-SYNC -->
         <li>
-            <p style="color:rgb(94, 98, 98)">
-                <b>APPCAIR-II</b> / <b>Radio-LM</b>
+            <p>
+                <b>AtGCN: A Graph Convolutional Network For Ataxic Gait Detection</b>
+                [<a href="https://arxiv.org/abs/2410.22862">arXiv</a>]
+                <img src="images/bits-logo.png" width="36" height="36">
+                <br>
+                Karan Bania, Tanmay Verlekar
+            </p>
+            <p>
+                <details>
+                    <summary style="color: dodgerblue;">abstract</summary>
+                    <br>
+                    Video-based gait analysis can be defined as the task of diagnosing pathologies, such as ataxia, using videos of patients walking in front of a camera. 
+                    This paper presents a graph convolution network called AtGCN for detecting ataxic gait and identifying its severity using 2D videos. 
+                    The problem is especially challenging as the deviation of an ataxic gait from a healthy gait is very subtle. 
+                    The datasets for ataxic gait detection are also quite small, with the largest dataset having only 149 videos. 
+                    The paper addresses the first problem using special spatiotemporal graph convolution that successfully captures important gait-related features. 
+                    To handle the small dataset size, a deep spatiotemporal graph convolution network pre-trained on an action recognition dataset is systematically truncated and then fine-tuned on the ataxia dataset to obtain the AtGCN model. 
+                    The paper also presents an augmentation strategy that segments a video sequence into multiple gait cycles. 
+                    The proposed AtGCN model then operates on a graph of body part locations belonging to a single gait cycle. 
+                    The evaluation results support the strength of the proposed AtGCN model, as it outperforms the state-of-the-art in detection and severity prediction with an accuracy of 93.46% and a MAE of 0.4169, respectively.
+                </details>
+            </p>
+        </li>
+        <!-- PXP -->
+        <li>
+            <p>
+                <b>Implementation and Application of an Intelligibility Protocol for Interaction with an LLM</b>
+                [<a href="https://arxiv.org/abs/2410.20600">arXiv</a> / <a href="https://github.com/karannb/interact">GitHub</a>]
                 <img src="images/macquarie-logo.png" width="30" height="36">
                 <img src="images/appcair-logo.jpg" width="45" height="45">
                 <img src="images/bits-logo.png" width="36" height="36">
+                <br>
+                Karan Bania*, Shreyas V*, Harshvardhan Mestha, Sidong Liu, Ashwin Srinivasan
             </p>
             <p>
-                The project revolves around finding harmful / beneficial aspects of LLMs and their explanations.
-                We are testing this using Radiology/Med students. 
-                This has been studied in the past by Donald Michie who proposed a "human-window" of task-doability.
-                <br>
-                This work's presentation led to the first prize in ACM event, <a href="https://docs.google.com/presentation/d/1cgqOCkLUlZULUnKfNyfb5xOiYnrGhVsb/edit?usp=sharing&ouid=103617805505848253890&rtpof=true&sd=true">slides</a>.
-                <br>
-                This work also takes inspiration from the PXP protocol (<a href="https://arxiv.org/abs/2410.20600">arXiv</a>), 
-                for which, I have co-developed an implementation <a href="https://github.com/karannb/interact">GitHub</a>.
+                This work's presentation led to the first prize in an ACM Goa event, <a href="https://docs.google.com/presentation/d/1cgqOCkLUlZULUnKfNyfb5xOiYnrGhVsb/edit?usp=sharing&ouid=103617805505848253890&rtpof=true&sd=true">slides</a>.
+                <details>
+                    <summary style="color: dodgerblue; ;">abstract</summary>
+                    <br>
+                    Our interest is in constructing interactive systems involving a human-expert interacting with a machine learning engine on data analysis tasks. 
+                    This is of relevance when addressing complex problems arising in areas of science, the environment, medicine and so on, which are not immediately amenable to the usual methods of statistical or mathematical modelling. 
+                    In such situations, it is possible that harnessing human expertise and creativity to modern machine-learning capabilities of identifying patterns by constructing new internal representations of the data may provide some insight to possible solutions. 
+                    In this paper, we examine the implementation of an abstract protocol developed for interaction between agents, each capable of constructing predictions and explanations. 
+                    The PXP protocol, described in [12] is motivated by the notion of ''two-way intelligibility'' and is specified using a pair of communicating finite-state machines. 
+                    While the formalisation allows the authors to prove several properties about the protocol, no implementation was presented. 
+                    Here, we address this shortcoming for the case in which one of the agents acts as a ''generator'' using a large language model (LLM) and the other is an agent that acts as a ''tester'' using either a human-expert, or a proxy for a human-expert (for example, a database compiled using human-expertise). 
+                    We believe these use-cases will be a widely applicable form of interaction for problems of the kind mentioned above. 
+                    We present an algorithmic description of general-purpose implementation, and conduct preliminary experiments on its use in two different areas (radiology and drug-discovery). 
+                    The experimental results provide early evidence in support of the protocol's capability of capturing one- and two-way intelligibility in human-LLM in the manner proposed in [12].
+                </details>
             </p>
         </li>
+        <!-- DFS -->
         <li>
-            <p style="color:rgb(94, 98, 98)">
-                <b>DeepForestSciences</b>
+            <p>
+                <b>Deep Forest Sciences</b>
+                <img src="images/dfs-logo.png" width="36" height="36">
                 <img src="images/deepchem-logo.png" width="36" height="40">
-                <img src="images/amat-logo.png" width="115" height="36">
+                <img src="images/amat-logo.png" width="36" height="36">
             </p>
             <p>
                 Contributing to the <a href="https://deepchem.io">DeepChem</a> library.
-                I am actively developing the Materials Science section; as a part of which I have edited to the 
-                <a href="https://deepchem.io/tutorials/introduction-to-material-science/">Introduction to Materials Science</a> Tutorial. 
-                I am adding several more basic-equivariance tutorials, as well as developing a pipeline for arbitrary property optimization in Materials Science 
-                (along with Applied Materials!).
+                I have added several tutorials (and adding more basic equivariance tutorials), 
+                [<a href="https://deepchem.io/tutorials/introduction-to-material-science/">1</a>]
+                [<a href="https://deepchem.io/tutorials/generating-molecules-with-molgan/">2</a>]
+                [<a href="https://deepchem.io/tutorials/training-a-normalizing-flow-on-qm9/">3</a>].
                 <br>
-                Previously, I co-developed MolGAN and Normalizing Flow implementations in PyTorch. 
-                This work (<a href="https://arxiv.org/abs/2408.06261">arXiv</a>) has been accepted at 
-                <a href="https://portal.ml4dd.com/moml-2024">MoML</a>'24, 
-                <a href="https://baylearn-org.github.io/www/">BayLearn</a>'24,
-                and also <a href="https://ml4physicalsciences.github.io/2024/">ML4PS @ NeurIPS</a>'24.
-                I also developed the tutorials for them, 
-                <a href="https://deepchem.io/tutorials/generating-molecules-with-molgan/">MolGAN</a>,
-                <a href="https://deepchem.io/tutorials/training-a-normalizing-flow-on-qm9/">NormFlows</a>.
+                I am developing a pipeline for arbitrary property optimization in Materials Science (along with Applied Materials!)
+                <br>
+                Previously, I co-developed MolGAN and Normalizing Flow implementations in PyTorch [<a href="https://arxiv.org/abs/2408.06261">arXiv</a>]. 
+                <details>
+                    <summary style="color: dodgerblue;">abstract</summary>
+                    <br>
+                    Generative models for molecules have shown considerable promise for use in computational chemistry, but remain difficult to use for non-experts. 
+                    For this reason, we introduce open-source infrastructure for easily building generative molecular models into the widely used DeepChem library with the aim of creating a robust and reusable molecular generation pipeline. 
+                    In particular, we add high quality PyTorch implementations of the Molecular Generative Adversarial Networks (MolGAN) and Normalizing Flows. 
+                    Our implementations show strong performance comparable with past work.
+                </details>
             </p>
         </li>
+        <!-- SAiDL -->
         <li>
-            <p style="color:rgb(94, 98, 98)">
+            <p>
                 <b>[RE] Teaching CLIP to Count to Ten</b>
+                [<a href="https://arxiv.org/abs/2406.03586">arXiv</a> / <a href="https://github.com/SforAiDl/CountCLIP">GitHub</a>]
                 <img src="images/saidl-logo.jpg" width="36" height="36">
+                <br>
+                Harshvardhan Mestha, Tejas Agrawal, Karan Bania, Shreyas V, Yash Bhisikar
             </p>
             <p>
                 This is a student-led reproduction of the Google Brain paper <a href="https://arxiv.org/abs/2302.12066">Teaching CLIP to Count to Ten</a>.
-                We developed novel (incremental) augmentations to the loss function, which showed improvement in our small scale experiments. 
-                Apart from this, we created data processing pipelines and also made their evaluation dataset completely public. 
-                This work has been submitted to ReScience C, <a href="https://arxiv.org/abs/2406.03586">arXiv</a>.
-            </p>
-        </li>
-        <li>
-            <p style="color:rgb(94, 98, 98)">
-                <b>Event Stream analysis using Deep SSMs</b>
-                <img src="images/rub-logo.png" width="56" height="36">
-                <img src="images/daad-logo.png" width="36" height="36">
-            </p>
-            <p>
-                This project's report is under review at a double-blind venue. 
-                Details soon.
+                <details>
+                    <summary style="color: dodgerblue;">abstract</summary>
+                    <br>
+                    Large vision-language models (VLMs) are shown to learn rich joint image-text representations enabling high performances in relevant downstream tasks. 
+                    However, they fail to showcase their quantitative understanding of objects, and they lack good counting-aware representation. 
+                    This paper conducts a reproducibility study of 'Teaching CLIP to Count to Ten' (Paiss et al., 2023), which presents a method to finetune a CLIP model (Radford et al., 2021) to improve zero-shot counting accuracy in an image while maintaining the performance for zero-shot classification by introducing a counting-contrastive loss term. 
+                    We improve the model's performance on a smaller subset of their training data with lower computational resources. 
+                    We verify these claims by reproducing their study with our own code. 
+                    The implementation can be found at this <a href="https://github.com/SforAiDl/CountCLIP">https URL</a>.
+                </details>
             </p>
         </li>
     </ul>
@@ -230,15 +318,14 @@
     -->
     <h3>Acknowledgement</h3><br>
     I am thoroughly grateful to all of my supervisors for their guidance and support.
+    They have played a massive role in the way I think and approach problems.
     In no particular order, they are 
     <a href="https://www.bits-pilani.ac.in/goa/ashwin-srinivasan/">Ashwin Srinivasan</a> (Sr. Professor, BITS Goa), 
     <a href="https://bits-pilani.ac.in/goa/tanmay-tulsidas-verlekar/">Tanmay Verlekar</a> (Assistant Professor, BITS Goa), 
     <a href="https://researchers.mq.edu.au/en/persons/sidong-liu">Sidong Liu</a> (Full Professor, Macquarie University), 
-    <a href="https://anandsubramoney.com/">Anand Subramoney</a> (Assistant Professor, Royal holloway University of London), 
-    <a href="https://www.ini.rub.de/the_institute/people/david-kappel/">David Kappel</a> (<s>PostDoc / Group Leader, RUB</s> Assistant Professor, University of Bielefeld), 
     <a href="https://rbharath.github.io/about/">Bharath Ramsundar</a> (Founder, Deep Forest Sciences), 
+    <a href="https://www.ini.rub.de/the_institute/people/david-kappel/">David Kappel</a> (<s>PostDoc / Group Leader, RUB</s> Assistant Professor, University of Bielefeld), 
     <a href="https://mlcv.inf.tu-dresden.de/group-schoene-mark.html">Mark Schöne</a> (PhD Student, TU Dresden), 
-    <a href="https://de.linkedin.com/in/khaleel-khan">Khaleel Khan</a> (Scientific Staff Member, Chair of HPVS, TU Dresden), 
     and all of my fellow SAiDL members & seniors!
     <br><br>
 
