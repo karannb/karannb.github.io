@@ -14,9 +14,21 @@
     </script>
 
     <link rel="icon" type="image/png" href="images/candle.jpg">
+    <base target="_blank">
 </head>
 
 <style>
+    /* Custom Scrollbar */
+    details summary {
+        cursor: pointer;
+        list-style: none;
+    }
+    details summary::-webkit-details-marker {
+        display: none;
+    }
+    details summary:hover {
+        text-decoration: underline;
+    }
     .news-container {
         max-width: 800px;
     }
@@ -60,17 +72,14 @@
         display: none; /* Chrome, Safari, Opera */
     }
 
+    /* Hyperlink modification */
     a {
-        color: dodgerblue;
-        text-decoration: none;
+        color: black;
+        text-decoration: underline;
     }
-
-    a:visited {
-        color: dodgerblue;
-    }
-
     a:hover {
-        color: indianred;
+        color: gray;
+        text-decoration: underline;
     }
 
     /* Hide the default triangle */
@@ -93,7 +102,7 @@
         content: '+';
         position: absolute;
         left: 0;
-        color: dodgerblue;
+        color: gray;
         align-items: center;
         height: 100%;
     }
@@ -120,17 +129,19 @@
                 Upcoming Research Engineer at <a href="https://gan.ai/">Gan.AI</a>,
                 Prev-<a href="https://drive.google.com/file/d/1u3ic72_KQ-uYeB2laLx-nJvxbFdjBo6x/view?usp=sharing">DAAD WISE</a>'24 Scholar.
             </p>
-            
+
             <p>
-                E-mail: echo "pfwfs3gfsnf3>Elrfnq3htr" | tr '\63-\172\056-\62' '\056-\172'
+                E-Mail: echo "pfwfs3gfsnf3>Elrfnq3htr" | tr "\63-\172\056-\62" "\056-\172"
             </p>
-            
+
             <p>
                 ~ 
                 <a href="https://drive.google.com/file/d/1AWvmQdRjp2H3Hbl0473NHN6BU2x_BEy8/view?usp=drive_link">CV</a> 
                 / <a href="https://github.com/karannb">GitHub</a> 
+                / <a href="https://scholar.google.com/citations?user=JOIQduEAAAAJ&hl=en">Scholar</a>
                 ~
             </p>
+
             <!-- 
                 About
             -->
@@ -143,7 +154,7 @@
                 <a href="https://docs.google.com/presentation/d/1UmnUMkBmlkAYAH1Brg5IgoUDFHZpdbyJLDUlBYsI_Ns/edit?usp=sharing">Graphormer</a>,
                 <a href="https://docs.google.com/presentation/d/1sx4xFZU90V2TebRmvc31Dyyqt7_7m4mA2BEhC65iK6k/edit?usp=sharing">Radio-LM</a>,
                 Deep SSMs [<a href="https://docs.google.com/presentation/d/14rBxmHsfTxxQ_L7wYW91_qlDyke078tja6dL32UaGnA/edit?usp=sharing">Slides</a> /
-                <a href="link">Video (soon)</a>].
+                <a href="link">Video</a> (soon)].
             </p>
         </div>
     </div>
@@ -157,7 +168,7 @@
         <h3>News</h3>
         <ul style="text-align: left; max-width: 800px;">
             <li>
-                <i>11/24</i> - My DAAD WISE project was recently released as an <a href="https://arxiv.org/abs/2411.12603">arXiv</a> report.
+                <i>11/24</i> - My DAAD WISE project is on <a href="https://arxiv.org/abs/2411.12603">arXiv</a>.
             </li>
             <li>
                 <i>10/24</i> - Check out our annual <a href = "https://sites.google.com/goa.bits-pilani.ac.in/ai-symposium-2024/home">AI Symposium</a>! 
@@ -171,7 +182,7 @@
                 <i>09/24</i> - Got a placement offer from <a href="https://gan.ai/">Gan.AI</a>.
             </li>
             <li>
-                <i>08/24</i> - Made the President of <a href="https://www.saidl.in/home" target="_blank">SAiDL</a> for the year 2024-25.
+                <i>08/24</i> - Made the President of <a href="https://www.saidl.in/home">SAiDL</a> for the year 2024-25.
             </li>
             <li>
                 <i>08/24</i> - We released an <a href="https://arxiv.org/abs/2408.06261">arXiv</a> report for our work on MolGAN and Normalizing flows.
@@ -214,7 +225,7 @@
                 <a href="https://github.com/karannb/bits-f464-labs">here</a>)
             </li>
             <li>
-                <i>01/24</i> - Made the General Secretary of <a href="https://www.saidl.in/home" target="_blank">SAiDL</a> for the year 2023-24.
+                <i>01/24</i> - Made the General Secretary of <a href="https://www.saidl.in/home">SAiDL</a> for the year 2023-24.
             </li>
             <li>
                 <i>12/23</i> - Started contributing to <a href="https://deepchem.io">DeepChem</a>.
@@ -260,7 +271,7 @@
                 Mark Schöne*, Yash Bhisikar*, Karan Bania*, Khaleelulla Khan Nazeer, Christian Mayr, Anand Subramoney, David Kappel
             </p>
             <details>
-                <summary style="color: dodgerblue;">abstract</summary>
+                <summary style="color: gray;">abstract</summary>
                 <p style="width: 800px;">
                 Handling sparse and unstructured geometric data, such as point clouds or event-based vision, is a pressing challenge in the field of machine vision. 
                 Recently, sequence models such as Transformers and state-space models entered the domain of geometric data. 
@@ -287,7 +298,7 @@
                 Karan Bania, Tanmay Verlekar
             </p>
             <details>
-                <summary style="color: dodgerblue;">abstract</summary>
+                <summary style="color: gray;">abstract</summary>
                 <p style="width: 800px;">
                 Video-based gait analysis can be defined as the task of diagnosing pathologies, such as ataxia, using videos of patients walking in front of a camera. 
                 This paper presents a graph convolution network called AtGCN for detecting ataxic gait and identifying its severity using 2D videos. 
@@ -311,10 +322,10 @@
                 <img src="images/appcair-logo.jpg" width="45" height="45">
                 <img src="images/bits-logo.png" width="36" height="36">
                 <br>
-                Karan Bania*, Shreyas V*, Harshvardhan Mestha, Sidong Liu, Ashwin Srinivasan
+                Ashwin Srinivasan, Karan Bania, Shreyas V, Harshvardhan Mestha, Sidong Liu
             </p>
             <details>
-                <summary style="color: dodgerblue; ;">abstract</summary>
+                <summary style="color: gray; ;">abstract</summary>
                 <p style="width: 800px;">
                 Our interest is in constructing interactive systems involving a human-expert interacting with a machine learning engine on data analysis tasks. 
                 This is of relevance when addressing complex problems arising in areas of science, the environment, medicine and so on, which are not immediately amenable to the usual methods of statistical or mathematical modelling. 
@@ -342,7 +353,7 @@
             <p>
                 Previously, I co-developed MolGAN and Normalizing Flow implementations in PyTorch [<a href="https://arxiv.org/abs/2408.06261">arXiv</a>]. 
                 <details>
-                    <summary style="color: dodgerblue;">abstract</summary>
+                    <summary style="color: gray;">abstract</summary>
                     <p style="width: 800px;">
                     Generative models for molecules have shown considerable promise for use in computational chemistry, but remain difficult to use for non-experts. 
                     For this reason, we introduce open-source infrastructure for easily building generative molecular models into the widely used DeepChem library with the aim of creating a robust and reusable molecular generation pipeline. 
@@ -371,7 +382,7 @@
             </p>
             <p>
             <details>
-                <summary style="color: dodgerblue;">abstract</summary>
+                <summary style="color: gray;">abstract</summary>
                 <p style="width: 800px;">
                 Large vision-language models (VLMs) are shown to learn rich joint image-text representations enabling high performances in relevant downstream tasks. 
                 However, they fail to showcase their quantitative understanding of objects, and they lack good counting-aware representation. 
@@ -399,7 +410,7 @@
     <a href="https://bits-pilani.ac.in/goa/tanmay-tulsidas-verlekar/">Tanmay Verlekar</a> (Assistant Professor, BITS Goa), 
     <a href="https://researchers.mq.edu.au/en/persons/sidong-liu">Sidong Liu</a> (Full Professor, Macquarie University), 
     <a href="https://rbharath.github.io/about/">Bharath Ramsundar</a> (Founder, Deep Forest Sciences), 
-    <a href="https://www.ini.rub.de/the_institute/people/david-kappel/">David Kappel</a> (<s>PostDoc / Group Leader, RUB</s> Junior Professor, University of Bielefeld), 
+    <a href="https://ekvv.uni-bielefeld.de/pers_publ/publ/PersonDetail.jsp?personId=503068013&lang=EN">David Kappel</a> (<s>PostDoc / Group Leader, RUB</s> Junior Professor, University of Bielefeld), 
     <a href="https://mlcv.inf.tu-dresden.de/group-schoene-mark.html">Mark Schöne</a> (PhD Student, TU Dresden), 
     and all of my fellow SAiDL members & seniors!
     <br><br>
@@ -418,7 +429,7 @@
             </li>
             <li>
                 I am quite frequently asked by juniors on how to start learning machine-learning, and I recently took a small session on it,
-                <a href="https://docs.google.com/presentation/d/1YfSpsF1VzESRTsmBJULyO1ndjawNZA62TKIo6HdblPU/edit?usp=sharing">Slides</a>.
+                <a href="https://docs.google.com/presentation/d/1YfSpsF1VzESRTsmBJULyO1ndjawNZA62TKIo6HdblPU/edit?usp=sharing">slides</a>.
             </li>
             <li>
                 My unique email count just hit 4! xD (a@gmail.com, b@goa.bits-pilani.ac.in, c@edu.ruhr-uni-bochum.de, d@deepforestsci.com)
