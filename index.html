@@ -79,7 +79,7 @@
         content: '+';
         position: absolute;
         left: 0;
-        color: gray;
+        color: dodgerblue;
         align-items: center;
         height: 100%;
     }
@@ -87,6 +87,29 @@
     /* Change to - when open */
     details[open] > summary:before {
         content: '-';
+    }
+
+    /* Erdos Number chain */
+    .erdos-number {
+        position: relative;
+        text-decoration: underline;
+        text-decoration-style: dotted;
+        cursor: pointer;
+    }
+    .tooltip {
+        display: none;
+        position: absolute;
+        top: 150%;  /* Position below the text */
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: black;
+        color: white;
+        padding: 5px 5px;
+        white-space: nowrap;
+        font-size: 12px;
+    }
+    .erdos-number:hover .tooltip {
+        display: block;
     }
 </style>
 
@@ -136,7 +159,8 @@
                 <a href="https://youtu.be/cAfrHICmDk0">Video</a>].
             </p>
             <p>
-                Quite amusingly, I have an <a href="https://en.wikipedia.org/wiki/Erd%C5%91s_number">Erdös Number</a> of 4.
+                Quite amusingly, I have an <a href="https://en.wikipedia.org/wiki/Erd%C5%91s_number">Erdős number</a> of <span class="erdos-number">4.
+                <span class="tooltip">Paul Erdős -> Endre Szemerédi -> Wolfgang Maass -> Anand Subramoney -> Karan Bania</span></span>
             </p>
         </div>
     </div>
@@ -256,7 +280,7 @@
                 Mark Schöne*, Yash Bhisikar*, Karan Bania*, Khaleelulla Khan Nazeer, Christian Mayr, Anand Subramoney, David Kappel
             </p>
             <details>
-                <summary style="color: gray;">abstract</summary>
+                <summary style="color: dodgerblue;">abstract</summary>
                 <p style="width: 800px;">
                 Handling sparse and unstructured geometric data, such as point clouds or event-based vision, is a pressing challenge in the field of machine vision. 
                 Recently, sequence models such as Transformers and state-space models entered the domain of geometric data. 
@@ -283,7 +307,7 @@
                 Karan Bania, Tanmay Verlekar
             </p>
             <details>
-                <summary style="color: gray;">abstract</summary>
+                <summary style="color: dodgerblue;">abstract</summary>
                 <p style="width: 800px;">
                 Video-based gait analysis can be defined as the task of diagnosing pathologies, such as ataxia, using videos of patients walking in front of a camera. 
                 This paper presents a graph convolution network called AtGCN for detecting ataxic gait and identifying its severity using 2D videos. 
@@ -310,7 +334,7 @@
                 Ashwin Srinivasan, Karan Bania, Shreyas V, Harshvardhan Mestha, Sidong Liu
             </p>
             <details>
-                <summary style="color: gray; ;">abstract</summary>
+                <summary style="color: dodgerblue; ;">abstract</summary>
                 <p style="width: 800px;">
                 Our interest is in constructing interactive systems involving a human-expert interacting with a machine learning engine on data analysis tasks. 
                 This is of relevance when addressing complex problems arising in areas of science, the environment, medicine and so on, which are not immediately amenable to the usual methods of statistical or mathematical modelling. 
@@ -338,7 +362,7 @@
             <p>
                 Previously, I co-developed MolGAN and Normalizing Flow implementations in PyTorch [<a href="https://arxiv.org/abs/2408.06261">arXiv</a>]. 
                 <details>
-                    <summary style="color: gray;">abstract</summary>
+                    <summary style="color: dodgerblue;">abstract</summary>
                     <p style="width: 800px;">
                     Generative models for molecules have shown considerable promise for use in computational chemistry, but remain difficult to use for non-experts. 
                     For this reason, we introduce open-source infrastructure for easily building generative molecular models into the widely used DeepChem library with the aim of creating a robust and reusable molecular generation pipeline. 
@@ -367,7 +391,7 @@
             </p>
             <p>
             <details>
-                <summary style="color: gray;">abstract</summary>
+                <summary style="color: dodgerblue;">abstract</summary>
                 <p style="width: 800px;">
                 Large vision-language models (VLMs) are shown to learn rich joint image-text representations enabling high performances in relevant downstream tasks. 
                 However, they fail to showcase their quantitative understanding of objects, and they lack good counting-aware representation. 
@@ -409,9 +433,6 @@
         <summary> Extra Stuff </summary>
         This is a list of random things, papers, tutorials, pictures, etc. that I find interesting.
         <ul>
-            <li>
-                The Erdö chain for me is - Paul Erdös -> Endre Szemerédi -> Wolfgang Maass -> Anand Subramoney -> Karan Bania.
-            </li>
             <li>
                 One of the first PoPL papers I read, "<a href="https://dl.acm.org/doi/10.1145/3371106">A Simple Differentiable Programming Language</a>", it's quite dense!
                 I'm probably still readung it xD. Thoroughly enjoyable.
@@ -472,4 +493,10 @@
     <br>
     <br>
 
+    <!-- 
+        Footer
+    -->
+    <footer>
+        <i>Last Updated: 10th December, 2024 (5:31 AM GMT+5:30).</i>
+    </footer>
 </body>
