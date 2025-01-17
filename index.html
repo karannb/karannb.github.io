@@ -19,17 +19,6 @@
 
 <style>
     /* Custom Scrollbar */
-    details summary {
-        cursor: pointer;
-        list-style: none;
-    }
-    details summary::-webkit-details-marker {
-        display: none;
-    }
-    details summary:hover {
-        text-decoration: underline;
-    }
-
     .news-container {
         max-width: 800px;
     }    
@@ -43,9 +32,16 @@
         position: sticky;
         top: 0;
         background: #fff;
+        padding-bottom: 5px;
     }
     .news-scroll::-webkit-scrollbar {
         display: none; /* Chrome, Safari, Opera */
+    }
+    .news-scroll li {
+    margin-bottom: 2.5px; /* Adds space between items */
+    }
+    .news-scroll li:last-child {
+        margin-bottom: 0; /* Remove margin from last item to prevent extra space at bottom */
     }
 
     /* Hyperlink modification */
@@ -122,24 +118,25 @@
         Intro Stuff
     -->
     <div style="display: flex; align-items: flex-start; gap: 2rem;">
-        <img src="images/portrait.jpg" alt="Karan Bania" width="300" height="398">
+        <img src="images/portrait.jpg" alt="Karan Bania" width="250" height="332">
         <div style="width: 500px;">
             I'm a final year Computer Science undergraduate at <a href="https://www.bits-pilani.ac.in/goa/">BITS Goa, India</a>,
             currently doing my bachelor's thesis at <a href="https://gan.ai/">Gan.AI</a>. Previously, I have interned at 
             <a href="https://appcair.com/">APPCAIR</a> and <a href="https://deepforestsci.com">DeepForestSciences</a>. I was also a 
-            <a href="https://drive.google.com/file/d/1u3ic72_KQ-uYeB2laLx-nJvxbFdjBo6x/view?usp=sharing">DAAD WISE</a> Scholar with 
+            <a href="https://drive.google.com/file/d/1u3ic72_KQ-uYeB2laLx-nJvxbFdjBo6x/view?usp=sharing">DAAD WISE</a> fellow with 
             <a href="https://github.com/Efficient-Scalable-Machine-Learning">ESML</a> for Summer'24.
 
             <!-- 
                 About
             -->
             <p>
-                I really like rap music, <a href="https://open.spotify.com/playlist/2VvPmWQzgJ3wtMUraEZ6UZ?si=b8251b952d674537">rap&blues</a>;
-                avid Pokémon catcher ;) Sometimes, I also (try to) talk about research, here's the better ones, 
+                I really like rap music [<a href="https://open.spotify.com/playlist/2VvPmWQzgJ3wtMUraEZ6UZ?si=b8251b952d674537">rap&blues</a>]
+                and am an avid Pokémon catcher ;). 
+                Sometimes, I also (try to) talk about research, here's the better ones, 
                 Graphormer [<a href="https://docs.google.com/presentation/d/1UmnUMkBmlkAYAH1Brg5IgoUDFHZpdbyJLDUlBYsI_Ns/edit?usp=sharing">Slides</a> / 
                 <a href="https://gram-blogposts.github.io/blog/2024/graphormer/">BlogPost</a>],
                 <a href="https://docs.google.com/presentation/d/1sx4xFZU90V2TebRmvc31Dyyqt7_7m4mA2BEhC65iK6k/edit?usp=sharing">Radio-LM</a>,
-                Deep SSMs [<a href="https://docs.google.com/presentation/d/14rBxmHsfTxxQ_L7wYW91_qlDyke078tja6dL32UaGnA/edit?usp=sharing">Slides</a> /
+                and Deep SSMs [<a href="https://docs.google.com/presentation/d/14rBxmHsfTxxQ_L7wYW91_qlDyke078tja6dL32UaGnA/edit?usp=sharing">Slides</a> /
                 <a href="https://youtu.be/cAfrHICmDk0">Video</a>].
             </p>
             <p>
@@ -163,253 +160,220 @@
     -->
     <div class="news-scroll">
         <h3>News</h3>
-        <ul style="text-align: left; max-width: 800px; list-style: circle;">
+        <ul style="text-align: left; list-style: circle; max-width: 800px;">
             <li>
-                <i>01/25</i> - Selected to attend the <a href="https://rsvp.withgoogle.com/events/researchsymposium25/home">Google DeepMind Research Symposium</a>'25 in Bangalore.
+                <i>[Jan 2025]</i> - We released the 2025 Spring induction assignment
+                [<a href="https://github.com/SforAiDl/SAiDL-Spring-2025-Induction-Assignment">Link</a>].
+                Fill out this <a href="https://forms.gle/W3EtpjJWdSVdib6H7">form</a> and join the 
+                <a href="https://join.slack.com/t/saidl/shared_invite/zt-2wmlm99ed-Ss_7ZDOSd8Jmc7DNP9hjUA">Slack</a> 
+                workspace for more updates. We look forward to your submissions.
             </li>
             <li>
-                <i>12/24</i> - Attending <a href="https://indoml.in/index.php">IndoML</a>'24 as an Amazon scholar, presented <a href="https://drive.google.com/file/d/1rbpLKtebEPddTbgIGLKL9UxDgSE2CfZ5/view?usp=drive_link">this</a> poster.
+                <i>[Jan 2025]</i> - Selected to attend the 
+                <a href="https://rsvp.withgoogle.com/events/researchsymposium25/home">Google DeepMind Research Symposium</a>'25 
+                in Bangalore.
             </li>
             <li>
-                <i>11/24</i> - My DAAD WISE project is on <a href="https://arxiv.org/abs/2411.12603">arXiv</a>.
+                <i>[Dec 2024]</i> - Attending <a href="https://indoml.in/index.php">IndoML</a>'24 as an Amazon scholar, presented 
+                <a href="https://drive.google.com/file/d/1rbpLKtebEPddTbgIGLKL9UxDgSE2CfZ5/view?usp=drive_link">this</a> poster.
             </li>
             <li>
-                <i>10/24</i> - Check out our annual <a href = "https://sites.google.com/goa.bits-pilani.ac.in/ai-symposium-2024/home">AI Symposium</a>! 
-                    Register <a href = "https://forms.gle/vMmt6UR6pc3boZS3A">here</a>. 
+                <i>[Nov 2024]</i> - My DAAD WISE project is on <a href="https://arxiv.org/abs/2411.12603">arXiv</a>.
             </li>
             <li>
-                <i>10/24</i> - We released arXiv reports of two of my projects with APPCAIR, <a href="https://arxiv.org/abs/2410.22862">AtGCN</a>
+                <i>[Oct 2024]</i> - Our <a href="https://arxiv.org/abs/2408.06261">work</a> on MolGAN and Normalizing Flows has been accepted at 
+                <a href="https://ml4physicalsciences.github.io/2024/">ML4PS</a> workshop at NeurIPS 2024!
+            </li>
+            <li>
+                <i>[Oct 2024]</i> - Check out our annual 
+                <a href="https://sites.google.com/goa.bits-pilani.ac.in/ai-symposium-2024/home">AI Symposium</a>. 
+                You can register <a href="https://forms.gle/vMmt6UR6pc3boZS3A">here</a>. 
+            </li>
+            <li>
+                <i>[Oct 2024]</i> - We released arXiv reports of two of my projects with APPCAIR, 
+                <a href="https://arxiv.org/abs/2410.22862">AtGCN</a>
                 & <a href="https://arxiv.org/abs/2410.20600">PXP</a>.
             </li>
             <li>
-                <i>09/24</i> - Got a Full Time offer from <a href="https://gan.ai/">Gan.AI</a>.
+                <i>[Sep 2024]</i> - Received a Full Time offer from <a href="https://gan.ai/">Gan.AI</a>.
             </li>
             <li>
-                <i>08/24</i> - Made the President of <a href="https://www.saidl.in/home">SAiDL</a> for the year 2024-25.
+                <i>[Sep 2024]</i> - Made the president of <a href="https://www.saidl.in/home">SAiDL</a> for the year 2024-25.
             </li>
             <li>
-                <i>08/24</i> - We released an <a href="https://arxiv.org/abs/2408.06261">arXiv</a> report for our work on MolGAN and Normalizing flows.
+                <i>[Aug 2024]</i> - We released an <a href="https://arxiv.org/abs/2408.06261">arXiv</a> report for our work on 
+                MolGAN and Normalizing flows.
             </li>
             <li>
-                <i>08/24</i> - TAing the CS F351 - Theory of Computation course at BITS Goa this semester. [<a href="https://drive.google.com/drive/folders/1liFwswHZn9otRC0VQcZ6vzTc4yBvqHYl?usp=drive_link">Tutorials</a>]
+                <i>[Aug 2024]</i> - TAing the CS F351 - Theory of Computation course at BITS Goa this semester 
+                [<a href="https://drive.google.com/drive/folders/1liFwswHZn9otRC0VQcZ6vzTc4yBvqHYl?usp=drive_link">Tutorials</a>].
             </li>
             <li>
-                <i>07/24</i> - I am a DataThon volunteer at <a href="https://indoml.in/indoml_datathon.php">IndoML'24</a>, The contest goes live on 5th August, register <a href="https://forms.gle/cVzA1cwyzuvXtzh17">here</a>! 
+                <i>[Jul 2024]</i> - I am a DataThon volunteer at <a href="https://indoml.in/indoml_datathon.php">IndoML</a>'24, 
+                the contest goes live on 5th August; you can register <a href="https://forms.gle/cVzA1cwyzuvXtzh17">here</a>.
             </li>
             <li>
-                <i>07/24</i> - A SAiDL blogpost led by me, on <a href="https://arxiv.org/abs/2106.05234">Graphormer</a> was accepted to the <a href="https://gram-workshop.github.io/index.html">GRaM Workshop at ICML</a>'24. 
-                It is live <a href="https://gram-blogposts.github.io/blog/2024/graphormer/">here</a>.
+                <i>[Jul 2024]</i> - A SAiDL blogpost led by me, on <a href="https://arxiv.org/abs/2106.05234">Graphormer</a> was accepted to the 
+                <a href="https://gram-workshop.github.io/index.html">GRaM Workshop at ICML</a>'24. 
+                It is hosted <a href="https://gram-blogposts.github.io/blog/2024/graphormer/">here</a>.
             </li>
             <li>
-                <i>06/24</i> - Our reproduction of <a href="https://arxiv.org/abs/2302.12066">Teaching CLIP to Count to Ten</a> is on <a href="https://arxiv.org/abs/2406.03586">arXiv</a>.
+                <i>[Jun 2024]</i> - Our reproduction of <a href="https://arxiv.org/abs/2302.12066">Teaching CLIP to Count to Ten</a> is on 
+                <a href="https://arxiv.org/abs/2406.03586">arXiv</a>.
             </li>
             <li>
-                <i>04/24</i> - Won first prize in ACM Goa Chapter's event PitchIt! organized at BITS Goa for my research presentation. 
-                You can check out the slides <a href="https://docs.google.com/presentation/d/1cgqOCkLUlZULUnKfNyfb5xOiYnrGhVsb/edit?usp=sharing&ouid=103617805505848253890&rtpof=true&sd=true">here</a>.
+                <i>[Apr 2024]</i> - Won first prize in ACM Goa Chapter's event "PitchIt!" organized at BITS Goa for my research presentation. 
+                The slides are available 
+                <a href="https://docs.google.com/presentation/d/1cgqOCkLUlZULUnKfNyfb5xOiYnrGhVsb/edit?usp=sharing&ouid=103617805505848253890&rtpof=true&sd=true">here</a>.
             </li>
             <li>
-                <i>02/24</i> - Our Spring Induction assignment for the 2024-25 cycle is out! 
-                [<a href="https://github.com/SforAiDl/SAiDL-Spring-2024-Induction-Assignment">Link</a>]
-                Fill out this <a href="https://forms.gle/WixhqzGdo3ZjUww98">form</a> and join the <a href="https://join.slack.com/t/saidl/shared_invite/zt-1al0wkfhz-HzI7hLkWkOhBpP1zaGGSVg">Slack</a> workspace for any doubts. Looking forward to your submissions!
+                <i>[Feb 2024]</i> - Our Spring Induction assignment for the 2024-25 cycle is out
+                [<a href="https://github.com/SforAiDl/SAiDL-Spring-2024-Induction-Assignment">Link</a>].
+                Fill out this <a href="https://forms.gle/WixhqzGdo3ZjUww98">form</a> and join the 
+                <a href="https://join.slack.com/t/saidl/shared_invite/zt-1al0wkfhz-HzI7hLkWkOhBpP1zaGGSVg">Slack</a> 
+                workspace for any doubts. We look forward to your submissions!
             </li>
             <li>
-                <i>02/24</i> - Selected for the <a href="https://www2.daad.de/deutschland/stipendium/datenbank/en/21148-scholarship-database/?detail=50015295">DAAD WISE program</a> 
-                (one of 250 undergraduates from India) at RUB, Germany for summer 2024! 
+                <i>[Feb 2024]</i> - Selected for the 
+                <a href="https://www2.daad.de/deutschland/stipendium/datenbank/en/21148-scholarship-database/?detail=50015295">DAAD WISE program</a> 
+                (one of only 235 undergraduates from India) at RUB, Germany for summer 2024.
                 <a href="https://www.ini.rub.de/">Institut Für Neuroinformatik</a> will be hosting me.
             </li>
             <li>
-                <i>01/24</i> - Selected for the 
+                <i>[Jan 2024]</i> - Selected for the 
                 <a href="https://www.mitacs.ca/our-programs/globalink-research-internship-students/">MITACS GRI program</a> 
-                (over 30,000 applicants) at the Ontario Tech University, Canada for summer 2024! 
-                <a href="http://vclab.science.ontariotechu.ca/">VC Lab</a> will be hosting me. (I rejected the offer)
+                (from a pool of over 30,000 applicants) at Ontario Tech University, Canada for summer 2024.
+                <a href="http://vclab.science.ontariotechu.ca/">VC Lab</a> would have hosted me, but I later decided to decline the offer.
             </li>
             <li>
-                <i>01/24</i> - TAing the BITS F464 - Machine Learning course at BITS Goa this semester. (You can check out our labs 
-                <a href="https://github.com/karannb/bits-f464-labs">here</a>)
+                <i>[Jan 2024]</i> - TAing the BITS F464 - Machine Learning course at BITS Goa this semester 
+                [<a href="https://github.com/karannb/bits-f464-labs">Labs</a>].
             </li>
             <li>
-                <i>01/24</i> - Made the General Secretary of <a href="https://www.saidl.in/home">SAiDL</a> for the year 2023-24.
+                <i>[Jan 2024]</i> - Made the General Secretary of <a href="https://www.saidl.in/home">SAiDL</a> for the year 2023-24.
             </li>
             <li>
-                <i>12/23</i> - Started contributing to <a href="https://deepchem.io">DeepChem</a>.
+                <i>[Oct 2023]</i> - Join us for our annual <a href="https://sites.google.com/goa.bits-pilani.ac.in/ai-symposium-2023/home">AI Symposium</a>, 
+                and register <a href="https://docs.google.com/forms/d/e/1FAIpQLSfmFMEGHAhfScJ1kZIyC8dUjYjUxStbR1H1eKL3IZqhWC7Xtw/viewform">here</a>. 
+                [<a href="https://linktr.ee/ai_symposium">linktree</a>]
             </li>
             <li>
-                <i>10/23</i> - Check out our annual <a href = "https://sites.google.com/goa.bits-pilani.ac.in/ai-symposium-2023/home">AI Symposium</a>! 
-                    Register <a href = "https://docs.google.com/forms/d/e/1FAIpQLSfmFMEGHAhfScJ1kZIyC8dUjYjUxStbR1H1eKL3IZqhWC7Xtw/viewform">here</a>. 
-                    [<a href="https://linktr.ee/ai_symposium">linktree</a>]
+                <i>[Jul 2023]</i> - TAing the CS F214 - Logic in Computer Science course at BITS Goa this semester.
             </li>
             <li>
-                <i>08/23</i> - Started working at <a href="https://www.bits-pilani.ac.in/appcair/">APPCAIR</a> as a student researcher.
+                <i>[Aug 2023]</i> - Inducted into <a href="https://www.saidl.in">SAiDL</a>!
             </li>
             <li>
-                <i>08/23</i> - TAing the CS F214 - Logic in Computer Science course at BITS Goa this semester.
-            </li>
-            <li>
-                <i>07/23</i> - One of four people from our batch to get inducted into <a href="https://www.saidl.in">SAiDL</a>!
-            </li>
-            <li>
-                <i>06/23</i> - Selected for <a href="http://cvit.iiit.ac.in/summerschool2023/">IIITH's 7th Summer School on AI</a> with focus on Computer Vision.
-            </li>
-            <li>
-                <i>05/23</i> - Selected for <a href="https://academy.neuromatch.io/">Neuromatch Summer School</a> in the Deep Learning Track.
+                <i>[May 2023]</i> - Selected for <a href="https://academy.neuromatch.io/">Neuromatch Summer School</a> in the Deep Learning Track & 
+                <a href="http://cvit.iiit.ac.in/summerschool2023/">IIITH's 7th Summer School on AI</a> with focus on Computer Vision.
             </li>
         </ul>
     </div>
     <br>
-
-
-    <!-- 
-        Projects
-    -->
-    <h3>Projects & Publications</h3>
-    <ol style="text-align: left">
-        <!-- ESML -->
-        <li>
-            <p>
-                <b>STREAM: A Universal State-Space Model for Sparse Geometric Data</b>
-                [<a href="https://arxiv.org/abs/2411.12603">arXiv</a>]
-                <img src="images/rub-logo.svg.png" width="36" height="36" alt="RUB Logo">
-                <img src="images/daad-logo.png" width="36" height="36" alt="DAAD Logo">
-                <br>
-                Mark Schöne*, Yash Bhisikar*, Karan Bania*, Khaleelulla Khan Nazeer, Christian Mayr, Anand Subramoney, David Kappel
-            </p>
-            <details>
-                <summary style="color: dodgerblue;">abstract</summary>
-                <p style="width: 800px;">
-                Handling sparse and unstructured geometric data, such as point clouds or event-based vision, is a pressing challenge in the field of machine vision. 
-                Recently, sequence models such as Transformers and state-space models entered the domain of geometric data. 
-                These methods require specialized preprocessing to create a sequential view of a set of points. 
-                Furthermore, prior works involving sequence models iterate geometric data with either uniform or learned step sizes, implicitly relying on the model to infer the underlying geometric structure. 
-                In this work, we propose to encode geometric structure explicitly into the parameterization of a state-space model. 
-                State-space models are based on linear dynamics governed by a one-dimensional variable such as time or a spatial coordinate. 
-                We exploit this dynamic variable to inject relative differences of coordinates into the step size of the state-space model. 
-                The resulting geometric operation computes interactions between all pairs of N points in O(N) steps. 
-                Our model deploys the Mamba selective state-space model with a modified CUDA kernel to efficiently map sparse geometric data to modern hardware. 
-                The resulting sequence model, which we call STREAM, achieves competitive results on a range of benchmarks from point-cloud classification to event-based vision and audio classification. 
-                STREAM demonstrates a powerful inductive bias for sparse geometric data by improving the PointMamba baseline when trained from scratch on the ModelNet40 and ScanObjectNN point cloud analysis datasets. 
-                It further achieves, for the first time, 100% test accuracy on all 11 classes of the DVS128 Gestures dataset.
-                </p>
-            </details>
-            <br>
-            I presented this <a href="https://drive.google.com/file/d/1rbpLKtebEPddTbgIGLKL9UxDgSE2CfZ5/view?usp=drive_link">poster</a> at <a href="https://indoml.in/forums.php">IndoML</a>'24.
-        </li>
-        <!-- ATAXIA-SYNC -->
-        <li>
-            <p>
-                <b>AtGCN: A Graph Convolutional Network For Ataxic Gait Detection</b>
-                [<a href="https://arxiv.org/abs/2410.22862">arXiv</a>]
-                <img src="images/bits-logo.png" width="36" height="36">
-                <br>
-                Karan Bania, Tanmay Verlekar
-            </p>
-            <details>
-                <summary style="color: dodgerblue;">abstract</summary>
-                <p style="width: 800px;">
-                Video-based gait analysis can be defined as the task of diagnosing pathologies, such as ataxia, using videos of patients walking in front of a camera. 
-                This paper presents a graph convolution network called AtGCN for detecting ataxic gait and identifying its severity using 2D videos. 
-                The problem is especially challenging as the deviation of an ataxic gait from a healthy gait is very subtle. 
-                The datasets for ataxic gait detection are also quite small, with the largest dataset having only 149 videos. 
-                The paper addresses the first problem using special spatiotemporal graph convolution that successfully captures important gait-related features. 
-                To handle the small dataset size, a deep spatiotemporal graph convolution network pre-trained on an action recognition dataset is systematically truncated and then fine-tuned on the ataxia dataset to obtain the AtGCN model. 
-                The paper also presents an augmentation strategy that segments a video sequence into multiple gait cycles. 
-                The proposed AtGCN model then operates on a graph of body part locations belonging to a single gait cycle. 
-                The evaluation results support the strength of the proposed AtGCN model, as it outperforms the state-of-the-art in detection and severity prediction with an accuracy of 93.46% and a MAE of 0.4169, respectively.
-                </p>
-            </details>
-        </li>
-        <!-- PXP -->
-        <li>
-            <p>
-                <b>Implementation and Application of an Intelligibility Protocol for Interaction with an LLM</b>
-                (PXP)
-                [<a href="https://arxiv.org/abs/2410.20600">arXiv</a> / <a href="https://github.com/karannb/interact">GitHub</a>]
-                <img src="images/macquarie-logo.png" width="30" height="36">
-                <img src="images/appcair-logo.jpg" width="45" height="45">
-                <img src="images/bits-logo.png" width="36" height="36">
-                <br>
-                Ashwin Srinivasan, Karan Bania, Shreyas V, Harshvardhan Mestha, Sidong Liu
-            </p>
-            <details>
-                <summary style="color: dodgerblue; ;">abstract</summary>
-                <p style="width: 800px;">
-                Our interest is in constructing interactive systems involving a human-expert interacting with a machine learning engine on data analysis tasks. 
-                This is of relevance when addressing complex problems arising in areas of science, the environment, medicine and so on, which are not immediately amenable to the usual methods of statistical or mathematical modelling. 
-                In such situations, it is possible that harnessing human expertise and creativity to modern machine-learning capabilities of identifying patterns by constructing new internal representations of the data may provide some insight to possible solutions. 
-                In this paper, we examine the implementation of an abstract protocol developed for interaction between agents, each capable of constructing predictions and explanations. 
-                The PXP protocol, described in <a href="https://arxiv.org/abs/2301.01819">[12]</a> is motivated by the notion of ''two-way intelligibility'' and is specified using a pair of communicating finite-state machines. 
-                While the formalisation allows the authors to prove several properties about the protocol, no implementation was presented. 
-                Here, we address this shortcoming for the case in which one of the agents acts as a ''generator'' using a large language model (LLM) and the other is an agent that acts as a ''tester'' using either a human-expert, or a proxy for a human-expert (for example, a database compiled using human-expertise). 
-                We believe these use-cases will be a widely applicable form of interaction for problems of the kind mentioned above. 
-                We present an algorithmic description of general-purpose implementation, and conduct preliminary experiments on its use in two different areas (radiology and drug-discovery). 
-                The experimental results provide early evidence in support of the protocol's capability of capturing one- and two-way intelligibility in human-LLM in the manner proposed in <a href="https://arxiv.org/abs/2301.01819">[12]</a>.
-                </p>
-            </details>
-            <br>
-            This work's presentation led to the first prize in an ACM Goa event, <a href="https://docs.google.com/presentation/d/1cgqOCkLUlZULUnKfNyfb5xOiYnrGhVsb/edit?usp=sharing&ouid=103617805505848253890&rtpof=true&sd=true">slides</a>.
-        </li>
-        <!-- DFS -->
-        <li>
-            <p>
-                <b>Deep Forest Sciences</b>
-                <img src="images/dfs-logo.png" width="36" height="36">
-                <img src="images/deepchem-logo.png" width="36" height="40">
-                <!-- <img src="images/amat-logo.png" width="36" height="36"> -->
-            </p>
-            <p>
-                Previously, I co-developed MolGAN and Normalizing Flow implementations in PyTorch [<a href="https://arxiv.org/abs/2408.06261">arXiv</a> / <a href="https://neurips.cc/media/PosterPDFs/NeurIPS%202024/100149.png">NeurIPS Poster</a>]. 
-                <details>
-                    <summary style="color: dodgerblue;">abstract</summary>
-                    <p style="width: 800px;">
-                    Generative models for molecules have shown considerable promise for use in computational chemistry, but remain difficult to use for non-experts. 
-                    For this reason, we introduce open-source infrastructure for easily building generative molecular models into the widely used DeepChem library with the aim of creating a robust and reusable molecular generation pipeline. 
-                    In particular, we add high quality PyTorch implementations of the Molecular Generative Adversarial Networks (MolGAN) and Normalizing Flows. 
-                    Our implementations show strong performance comparable with past work.
-                </details>
-                <br>
-                Contributing to the <a href="https://deepchem.io">DeepChem</a> library.
-                I have added several tutorials (and adding more basic equivariance tutorials), 
-                [<a href="https://deepchem.io/tutorials/introduction-to-material-science/">1</a>]
-                [<a href="https://deepchem.io/tutorials/generating-molecules-with-molgan/">2</a>]
-                [<a href="https://deepchem.io/tutorials/training-a-normalizing-flow-on-qm9/">3</a>].
-                <br>
-                I was developing a pipeline for arbitrary property optimization in Materials Science.
-                I left the team in January'25.
-                <br>
-            </p>
-        </li>
-        <!-- SAiDL -->
-        <li>
-            <p>
-                <b>[RE] Teaching CLIP to Count to Ten</b>
-                [<a href="https://arxiv.org/abs/2406.03586">arXiv</a> / <a href="https://github.com/SforAiDl/CountCLIP">GitHub</a>]
-                <img src="images/saidl-logo.jpg" width="36" height="36">
-                <br>
-                Harshvardhan Mestha, Tejas Agrawal, Karan Bania, Shreyas V, Yash Bhisikar
-            </p>
-            <p>
-            <details>
-                <summary style="color: dodgerblue;">abstract</summary>
-                <p style="width: 800px;">
-                Large vision-language models (VLMs) are shown to learn rich joint image-text representations enabling high performances in relevant downstream tasks. 
-                However, they fail to showcase their quantitative understanding of objects, and they lack good counting-aware representation. 
-                This paper conducts a reproducibility study of 'Teaching CLIP to Count to Ten' (Paiss et al., 2023), which presents a method to finetune a CLIP model (Radford et al., 2021) to improve zero-shot counting accuracy in an image while maintaining the performance for zero-shot classification by introducing a counting-contrastive loss term. 
-                We improve the model's performance on a smaller subset of their training data with lower computational resources. 
-                We verify these claims by reproducing their study with our own code. 
-                The implementation can be found at this <a href="https://github.com/SforAiDl/CountCLIP">https URL</a>.
-                </p>
-            </details>
-            <br>
-            This is a student-led reproduction of the Google Brain paper, <i>Teaching CLIP to Count to Ten</i> (<a href="https://arxiv.org/abs/2302.12066">arXiv</a>).
-        </li>
-    </ol>
     <br>
 
+    <!-- 
+        Experience
+    -->
+    <div style="max-width: 800px;">
+        <h3>Experience</h3>
+        <!-- Gan.AI -->
+        <p>
+            <b>Research Engineer Intern</b>
+            <a href="https://gan.ai/"><img src="images/gan-logo.png" width="36" height="36"></a>
+            <br>
+            part of the Deep Learning team supervised by <a href="https://scholar.google.com/citations?user=9zUHCNoAAAAJ&hl=en">Suvrat Bhooshan</a>
+        </p>
+        I am working on pipelines for large-scale data-extraction, training and deployment of Text-To-Speech (TTS) models.
+
+        <!-- ESML -->
+        <p>
+            <b>DAAD WISE Fellow</b>
+            <a href="https://www.ini.rub.de/"><img src="images/rub-logo.svg.png" width="36" height="36"></a>
+            <a href="https://www.daad.de/en/"><img src="images/daad-logo.png" width="36" height="36"></a>
+            <br>
+            co-supervised by <a href="https://scholar.google.com/citations?user=csoW51sAAAAJ&hl=en">David Kappel</a> 
+            and <a href="https://scholar.google.com/citations?user=gmu6TWwAAAAJ&hl=en">Anand Subramoney</a>
+            (and <a href="https://scholar.google.com/citations?user=8eb32vEAAAAJ&hl=en">Mark Schöne</a>!)
+        </p>
+        We extended the group's prior work [<a href="https://arxiv.org/abs/2404.18508">Event-SSM</a>] to the Mamba SSM and 
+        tested it on Event-stream and Point-cloud datasets.
+        I also helped develop a hardware-aware implementation by modifying the CUDA kernels from the original 
+        <a href="https://arxiv.org/abs/2312.00752">Mamba</a> implementation.
+        The method scales to extremely long sequences of events and is amenable to recent language-like unsupervised pretraining methods.
+        Our work is on <a href="https://arxiv.org/abs/2411.12603">arXiv</a>, I also presented this 
+        <a href="https://drive.google.com/file/d/1rbpLKtebEPddTbgIGLKL9UxDgSE2CfZ5/view?usp=drive_link">poster</a> at 
+        <a href="https://indoml.in/forums.php">IndoML</a>'24.
+
+        <!-- APPCAIR -->
+        <p>
+            <b>Undergraduate Research Assistant</b>
+            <a href="https://appcair.com/"><img src="images/appcair-logo.jpg" width="45" height="45"></a>
+            <a href="https://www.bits-pilani.ac.in/goa/"><img src="images/bits-logo.png" width="36" height="36"></a>
+            <a href="https://www.macquarie.edu.au/"><img src="images/macquarie-logo.png" width="36" height="36"></a>
+            <br>
+            co-supervised by <a href="https://scholar.google.com.au/citations?user=zpNTeogAAAAJ&hl=en">Ashwin Srinivasan</a>, 
+            <a href="https://scholar.google.com/citations?user=sw6ngN8AAAAJ&hl=en">Tanmay Verlekar</a>
+            and <a href="https://scholar.google.com.au/citations?user=wVwn-dIAAAAJ&hl=en">Sidong Liu</a>
+        </p>
+        I worked on several projects around Machine Learning for Healthcare during my time at the lab.
+        Recently, I helped develop an <a href="https://arxiv.org/abs/2410.20600">implementation</a> for the 
+        <a href="https://arxiv.org/abs/2301.01819">PXP</a> protocol also developed by the lab. 
+        We verify the theory on simple tasks in radiology and retrosynthesis. 
+        We are also in the process of releasing an empirical study of harmful / beneficial machine learning with real-world 
+        radiology data, inspired by the <a href="https://academic.oup.com/comjnl/article/25/1/105/527270">human-window hypothesis</a>.
+        I won the first prize in an ACM Goa event for this work's presentation 
+        [<a href="https://docs.google.com/presentation/d/1cgqOCkLUlZULUnKfNyfb5xOiYnrGhVsb/edit?usp=sharing&ouid=103617805505848253890&rtpof=true&sd=true">slides</a>].
+        <br>
+        <br>
+        I also helped develop a <a href="https://arxiv.org/abs/2410.22862">graph convolution network</a> for ataxic gait detection, which works 
+        end-to-end from raw videos to detection and severity prediction.
+        Finally, I also helped benchmark LLMs for radiology report generation and as a judge, and proposed a simple solution from our observations, 
+        we'll release this to arXiv soon!
+
+        <!-- DFS -->
+        <p>
+            <b>Research Intern</b>
+            <a href="https://deepforestsci.com"><img src="images/dfs-logo.png" width="36" height="36"></a>
+            <a href="https://deepchem.io"><img src="images/deepchem-logo.png" width="36" height="40"></a>
+            <br>
+            supervised by <a href="https://scholar.google.com/citations?user=LOdVDNYAAAAJ&hl=en">Bharath Ramsundar</a>
+        </p>
+        I contributed to the <a href="https://deepchem.io">DeepChem</a> library, co-developed flexible MolGAN and Normalizing Flow implementations in 
+        PyTorch [<a href="https://arxiv.org/abs/2408.06261">arXiv</a> / <a href="https://neurips.cc/media/PosterPDFs/NeurIPS%202024/100149.png">NeurIPS Poster</a>]
+        and several tutorials [<a href="https://deepchem.io/tutorials/introduction-to-material-science/">1</a>]
+        [<a href="https://deepchem.io/tutorials/generating-molecules-with-molgan/">2</a>]
+        [<a href="https://deepchem.io/tutorials/training-a-normalizing-flow-on-qm9/">3</a>]
+        [<a href="">4</a>]
+        [<a href="">5</a>].
+        I also developed a preliminary pipeline for arbitrary property optimization for materials before I left the team in January'25.
+
+        <!-- SAiDL -->
+        <p>
+            <b>President</b>
+            <a href="https://www.saidl.in"><img src="images/saidl-logo.jpg" width="36" height="36"></a>
+            <br>
+            Previously General Secretary for the year 2023-24.
+        </p>
+        I've helped create two induction assignments for the group,
+        [<a href="https://github.com/SforAiDl/SAiDL-Spring-2025-Induction-Assignment">2025</a>] and
+        [<a href="https://github.com/SforAiDl/SAiDL-Spring-2024-Induction-Assignment">2024</a>].
+        I present frequently at the group's weekly meetings (e.g. on SSMs [<a href="https://youtu.be/cAfrHICmDk0">video</a>]), 
+        I started a blog-posts initiative, our first blog-post on <a href="https://gram-blogposts.github.io/blog/2024/graphormer/">Graphormer</a> 
+        was accepted to the <a href="https://gram-workshop.github.io/index.html">GRaM Workshop at ICML</a>'24.
+        I have also co-led 2 AI Symposiums in [<a href="https://sites.google.com/goa.bits-pilani.ac.in/ai-symposium-2023/home">2023</a>]
+        and [<a href="https://sites.google.com/goa.bits-pilani.ac.in/ai-symposium-2024/home">2024</a>].
+        Lastly, I helped write simple GPU runners for our <a href="https://arxiv.org/abs/2406.03586">reproduction</a> 
+        of <a href="https://arxiv.org/abs/2302.12066">Teaching CLIP to Count to Ten</a>.
+    </div>
+    <br>
+    <br>
 
     <!-- 
         Acknowledgements
     -->
     <h3>Acknowledgement</h3>
-    I am thoroughly grateful to all of my supervisors for their guidance and support.
+    I am <i>immensely</i> grateful to all of my supervisors for their guidance and support.
     They have played a massive role in the way I think and approach problems.
     In no particular order, they are 
     <a href="https://scholar.google.com.au/citations?user=zpNTeogAAAAJ&hl=en">Ashwin Srinivasan</a> (Sr. Professor, BITS Goa), 
@@ -420,7 +384,8 @@
     <a href="https://scholar.google.com/citations?user=gmu6TWwAAAAJ&hl=en">Anand Subramoney</a> (Assistant Professor, Royal Holloway, University of London),
     <a href="https://scholar.google.com/citations?user=8eb32vEAAAAJ&hl=en">Mark Schöne</a> (PhD Student, TU Dresden), 
     and all of my fellow SAiDL members & seniors!
-    <br><br>
+    <br>
+    <br>
 
 
     <!-- 
@@ -431,11 +396,14 @@
         This is a list of random things, papers, tutorials, pictures, etc. that I find interesting.
         <ul>
             <li>
+                My unique email count just hit 5 (a@gmail.com, b@goa.bits-pilani.ac.in, c@edu.ruhr-uni-bochum.de, d@deepforestsci.com, e@gan.studio).
+            </li>
+            <li>
                 Will do something like <a href="https://www.reddit.com/r/MachineLearning/comments/1hsxkkk/discussion_i_trained_an_ai_model_to_generate/">this</a>
                 very soon!
             </li>
             <li>
-                One of the first PoPL papers I read, "<a href="https://dl.acm.org/doi/10.1145/3371106">A Simple Differentiable Programming Language</a>", it's quite dense!
+                One of the first PL papers I read, "<a href="https://dl.acm.org/doi/10.1145/3371106">A Simple Differentiable Programming Language</a>", it's quite dense!
                 I'm probably still readung it xD. Thoroughly enjoyable.
             </li>
             <li>
@@ -443,51 +411,46 @@
                 <a href="https://docs.google.com/presentation/d/1YfSpsF1VzESRTsmBJULyO1ndjawNZA62TKIo6HdblPU/edit?usp=sharing">slides</a>.
             </li>
             <li>
-                My unique email count just hit 4! xD (a@gmail.com, b@goa.bits-pilani.ac.in, c@edu.ruhr-uni-bochum.de, d@deepforestsci.com)
-            </li>
-            <li>
-                [The NIPS'14 Experiment] <a href="https://inverseprobability.com/talks/notes/the-neurips-experiment.html">Interesting</a> read.
+                Interesting read on <a href="https://inverseprobability.com/talks/notes/the-neurips-experiment.html">The NIPS'14 Experiment</a>.
             </li>
             <li>
                 Great <a href="https://dmol.pub/index.html">book</a> for anyone wanting to enter the computational Chemistry / Materials Science field.
             </li>
             <li>
-                Amazing <a href="https://srush.github.io/annotated-s4/">tutorial</a> on SSMs.
+                Amazing <a href="https://srush.github.io/annotated-s4/">tutorial</a> on SSMs (you probably know SSMs from here).
             </li>
             <li>
                 This <a href="https://youtu.be/p8u_k2LIZyo?si=_JZbB7onplfniwQT">video</a> should be in CS curriculums!
             </li>
             <li>
-                <a href="https://play.google.com/store/apps/details?id=com.pipsqueakgames.pkd&hl=en&gl=US&pli=1">Punch, Kick, Duck!</a>
-                This took me a while but I am ranked <b>9th</b> in the world in this game's first level! xD.
+                Took me a while but I am ranked <b>9th</b> in the world in this game's (<a href="https://play.google.com/store/apps/details?id=com.pipsqueakgames.pkd&hl=en&gl=US&pli=1">Punch, Kick, Duck!</a>) 
+                first level! xD.
             </li>
             <li>
-                Craziest paper on GNNs so far! Ultra - <a href = "https://arxiv.org/pdf/2310.04562.pdf">Towards Foundation Models For Knowledge Graph Reasoning</a>.
+                Craziest paper on GNNs so far! [<a href="https://arxiv.org/pdf/2310.04562.pdf">Ultra</a>]
             </li>
             <li>
                 The most useful useless <a href="https://www.youtube.com/watch?v=rSKMYc1CQHE">video</a> I've seen.
             </li>
             <li>
-                [✨Zero Knowledge Proofs✨] a (un)popular <a href="https://www.youtube.com/watch?v=fOGdb1CTu5c">video</a>.
+                Nice video on <a href="https://www.youtube.com/watch?v=fOGdb1CTu5c">Zero Knowledge Proofs</a>.
             </li>
             <li>
-                [🗼🗼🗼] <a href="images/eiffel.jpg">Your newest wallpaper</a> xD.
+                <a href="images/eiffel.jpg">Your newest wallpaper</a> (🗼) xD.
             </li>
             <li>
-                [(Very) Amazing paper on GNNs!] GSAT - <a href = "https://arxiv.org/pdf/2201.12987.pdf">Interpretable and Generalizable Graph Learning via Stochastic Attention Mechanism</a>
-                <br>
-                My <a href="https://docs.google.com/presentation/d/1B9HIg9m8ZPFd3SBctBD1d50VCWpgNLteyG4FOP44EQo/edit?usp=sharing">Slides</a>.
+                (Very) Amazing read! [<a href="https://arxiv.org/pdf/2201.12987.pdf">GSAT</a>]
+                My <a href="https://docs.google.com/presentation/d/1B9HIg9m8ZPFd3SBctBD1d50VCWpgNLteyG4FOP44EQo/edit?usp=sharing">slides</a>.
             </li>
             <li>
-                [Multi-task optimization 👌🏻] BLIP - <a href = "https://arxiv.org/pdf/2201.12086.pdf">Bootstrapping Language-Image Pre-training for Unified Vision-Language Understanding and Generation</a>.
+                First time I came across multi-task optimization [<a href="https://arxiv.org/pdf/2201.12086.pdf">BLIP</a>].
             </li>
             <li>
-                [New paradigm on GNN's applicability] CrysXPP - <a href = "https://arxiv.org/pdf/2104.10869.pdf">An Explainable Property Predictor for Crystalline Materials</a>.
+                GNNs for Materials? [<a href="https://arxiv.org/pdf/2104.10869.pdf">CrysXPP</a>]
             </li>
             <li>
-                [Google just being Google] Gshard - <a href = "https://arxiv.org/pdf/2006.16668.pdf">Scaling Giant Models with Conditional Computation and Automatic Sharding</a>
-                <br> 
-                My <a href="https://docs.google.com/presentation/d/1Nafdt7SyYD-4xiNwwqNemaRBDZrDZt4azRa_eKiQTow/edit?usp=sharing">Slides</a>.
+                I was blown away by the scale [<a href="https://arxiv.org/pdf/2006.16668.pdf">Gshard</a>]!
+                My <a href="https://docs.google.com/presentation/d/1Nafdt7SyYD-4xiNwwqNemaRBDZrDZt4azRa_eKiQTow/edit?usp=sharing">slides</a>.
             </li>
         </ul>
     </details>
@@ -498,6 +461,6 @@
         Footer
     -->
     <footer>
-        <i>Last Updated: 12th January, 2025 (6:40 PM GMT+5:30).</i>
+        <i>Last updated: 18th January, 2025 (2:15 AM GMT+5:30).</i>
     </footer>
 </body>
