@@ -136,8 +136,10 @@
                 Graphormer [<a href="https://docs.google.com/presentation/d/1UmnUMkBmlkAYAH1Brg5IgoUDFHZpdbyJLDUlBYsI_Ns/edit?usp=sharing">Slides</a> / 
                 <a href="https://gram-blogposts.github.io/blog/2024/graphormer/">BlogPost</a>],
                 <a href="https://docs.google.com/presentation/d/1sx4xFZU90V2TebRmvc31Dyyqt7_7m4mA2BEhC65iK6k/edit?usp=sharing">Radio-LM</a>,
-                and Deep SSMs [<a href="https://docs.google.com/presentation/d/14rBxmHsfTxxQ_L7wYW91_qlDyke078tja6dL32UaGnA/edit?usp=sharing">Slides</a> /
-                <a href="https://youtu.be/cAfrHICmDk0">Video</a>].
+                Deep SSMs [<a href="https://docs.google.com/presentation/d/14rBxmHsfTxxQ_L7wYW91_qlDyke078tja6dL32UaGnA/edit?usp=sharing">Slides</a> /
+                <a href="https://youtu.be/cAfrHICmDk0">Video</a>]
+                and Wav2Lip [<a href="https://docs.google.com/presentation/d/1ZsGS3e2JD8ONWppRGcfZ1_VHWmtC0HWxTlBsVf5jpbo/edit?usp=sharing">Slides</a> / 
+                <a href="">Video</a>].
             </p>
             <p>
                 Quite amusingly, I have an <a href="https://en.wikipedia.org/wiki/Erd%C5%91s_number">Erdős number</a> of <span class="erdos-number">4.
@@ -298,9 +300,9 @@
         </p>
         We extended the group's prior work [<a href="https://arxiv.org/abs/2404.18508">Event-SSM</a>] to the Mamba SSM and 
         tested it on Event-stream and Point-cloud datasets.
-        I also helped develop a hardware-aware implementation by modifying the CUDA kernels from the original 
+        I also helped develop a hardware-aware implementation by modifying the <b>CUDA kernels</b> from the original 
         <a href="https://arxiv.org/abs/2312.00752">Mamba</a> implementation.
-        The method scales to extremely long sequences of events and is amenable to recent language-like unsupervised pretraining methods.
+        The method scales to extremely long sequences (2<sup>64</sup>!) of events and is amenable to recent language-like unsupervised pretraining methods.
         Our work is on <a href="https://arxiv.org/abs/2411.12603">arXiv</a>, I also presented this 
         <a href="https://drive.google.com/file/d/1rbpLKtebEPddTbgIGLKL9UxDgSE2CfZ5/view?usp=drive_link">poster</a> at 
         <a href="https://indoml.in/forums.php">IndoML</a>'24.
@@ -310,26 +312,32 @@
             <b>Undergraduate Research Assistant</b>
             <a href="https://appcair.com/"><img src="images/appcair-logo.jpg" width="45" height="45"></a>
             <a href="https://www.bits-pilani.ac.in/goa/"><img src="images/bits-logo.png" width="36" height="36"></a>
-            <a href="https://www.macquarie.edu.au/"><img src="images/macquarie-logo.png" width="36" height="36"></a>
+            <a href="https://www.macquarie.edu.au/"><img src="images/macquarie-logo.png" width="32" height="36"></a>
             <br>
             co-supervised by <a href="https://scholar.google.com.au/citations?user=zpNTeogAAAAJ&hl=en">Ashwin Srinivasan</a>, 
             <a href="https://scholar.google.com/citations?user=sw6ngN8AAAAJ&hl=en">Tanmay Verlekar</a>
             and <a href="https://scholar.google.com.au/citations?user=wVwn-dIAAAAJ&hl=en">Sidong Liu</a>
         </p>
         I worked on several projects around Machine Learning for Healthcare during my time at the lab.
-        Recently, I helped develop an <a href="https://arxiv.org/abs/2410.20600">implementation</a> for the 
-        <a href="https://arxiv.org/abs/2301.01819">PXP</a> protocol also developed by the lab. 
-        We verify the theory on simple tasks in radiology and retrosynthesis. 
-        We are also in the process of releasing an empirical study of harmful / beneficial machine learning with real-world 
+        Recently, I helped develop an implementation for the 
+        <a href="https://arxiv.org/abs/2301.01819">PXP</a> protocol (also developed by the lab). 
+        We use LLMs to simulate human-LLM interactions, verify the theory and provide insights into the relation between 
+        intelligibilty performance on simple tasks in <b>radiology and retrosynthesis</b>
+        [<a href="https://arxiv.org/abs/2410.20600">arXiv</a> / <a href="https://github.com/karannb/interact">GitHub</a>].
+        <br>
+        <br>
+        We also developed a <b>spatiotemporal graph convolution network</b> for ataxic gait detection, which works 
+        end-to-end from raw videos to detection and severity prediction [<a href="https://arxiv.org/abs/2410.22862">arXiv</a>].
+        <br>
+        <br> 
+        We are in the process of releasing an empirical study of harmful / beneficial machine learning with real-world 
         radiology data, inspired by the <a href="https://academic.oup.com/comjnl/article/25/1/105/527270">human-window hypothesis</a>.
         I won the first prize in an ACM Goa event for this work's presentation 
         [<a href="https://docs.google.com/presentation/d/1cgqOCkLUlZULUnKfNyfb5xOiYnrGhVsb/edit?usp=sharing&ouid=103617805505848253890&rtpof=true&sd=true">slides</a>].
         <br>
         <br>
-        I also helped develop a <a href="https://arxiv.org/abs/2410.22862">graph convolution network</a> for ataxic gait detection, which works 
-        end-to-end from raw videos to detection and severity prediction.
-        Finally, I also helped benchmark LLMs for radiology report generation and as a judge, and proposed a simple solution from our observations, 
-        we'll release this to arXiv soon!
+        Finally, I also helped benchmark LLMs for radiology report generation and as a judge for evaluation, we also proposed a 
+        simple solution from our observations, we'll release this to arXiv soon!
 
         <!-- DFS -->
         <p>
@@ -339,13 +347,14 @@
             <br>
             supervised by <a href="https://scholar.google.com/citations?user=LOdVDNYAAAAJ&hl=en">Bharath Ramsundar</a>
         </p>
-        I contributed to the <a href="https://deepchem.io">DeepChem</a> library, co-developed flexible MolGAN and Normalizing Flow implementations in 
+        I contributed to the <a href="https://deepchem.io">DeepChem</a> library, co-developed flexible <b>MolGAN and Normalizing Flow implementations</b> in 
         PyTorch [<a href="https://arxiv.org/abs/2408.06261">arXiv</a> / <a href="https://neurips.cc/media/PosterPDFs/NeurIPS%202024/100149.png">NeurIPS Poster</a>]
-        and several tutorials [<a href="https://deepchem.io/tutorials/introduction-to-material-science/">1</a>]
+        and tutorials [<a href="https://deepchem.io/tutorials/introduction-to-material-science/">1</a>]
         [<a href="https://deepchem.io/tutorials/generating-molecules-with-molgan/">2</a>]
         [<a href="https://deepchem.io/tutorials/training-a-normalizing-flow-on-qm9/">3</a>]
         [<a href="">4</a>]
-        [<a href="">5</a>].
+        [<a href="">5</a>]
+        on materials science and equivariance.
         I also developed a preliminary pipeline for arbitrary property optimization for materials before I left the team in January'25.
 
         <!-- SAiDL -->
@@ -356,9 +365,9 @@
             Previously General Secretary for the year 2023-24.
         </p>
         I've helped create two induction assignments for the group,
-        [<a href="https://github.com/SforAiDl/SAiDL-Spring-2025-Induction-Assignment">2025</a>] and
-        [<a href="https://github.com/SforAiDl/SAiDL-Spring-2024-Induction-Assignment">2024</a>].
-        I present frequently at the group's weekly meetings (e.g. on SSMs [<a href="https://youtu.be/cAfrHICmDk0">video</a>]), 
+        [<a href="https://github.com/SforAiDl/SAiDL-Spring-2024-Induction-Assignment">2024</a>] and
+        [<a href="https://github.com/SforAiDl/SAiDL-Spring-2025-Induction-Assignment">2025</a>].
+        I present frequently at the group's weekly meetings (e.g. on Deep SSMs [<a href="https://youtu.be/cAfrHICmDk0">video</a>]), 
         I started a blog-posts initiative, our first blog-post on <a href="https://gram-blogposts.github.io/blog/2024/graphormer/">Graphormer</a> 
         was accepted to the <a href="https://gram-workshop.github.io/index.html">GRaM Workshop at ICML</a>'24.
         I have also co-led 2 AI Symposiums in [<a href="https://sites.google.com/goa.bits-pilani.ac.in/ai-symposium-2023/home">2023</a>]
