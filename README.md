@@ -1,3 +1,0 @@
-# Personal Webpage
-
-Plain html.
