@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <head>
+        <!-- Hi, Karan Here. Please DELETE the two <script> tags below if you use this HTML, otherwise my analytics will track your page -->
+
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-FZYHPBJ2NN"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-FZYHPBJ2NN');
+        </script>
+
+        <link rel="icon" type="image/png" href="../images/candle.jpg">
+        <base target="_blank">
+    </head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Articles</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: baseline;
+            justify-content: center;
+            margin: 0;
+            text-align: justify;
+            padding-left: 20%;
+            padding-right: 20%;
+        }
+    </style>
+</head>
+<style>
+    a {
+        color: crimson;
+        text-decoration: none;
+    }
+    a:hover {
+        color: black;
+        /* text-decoration: underline;
+        text-decoration-color: black; */
+    }
+    /* Erdos Number chain */
+    .special-hover {
+        position: relative;
+        text-decoration: underline;
+        text-decoration-style: dotted;
+        cursor: pointer;
+    }
+    .tooltip {
+        display: none;
+        position: absolute;
+        top: -25px;  /* Position below the text */
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: black;
+        color: white;
+        padding: 5px 5px;
+        white-space: nowrap;
+        font-size: 12px;
+    }
+    .special-hover:hover .tooltip {
+        display: block;
+    }
+    p {
+        margin-bottom: 5px;
+    }
+</style>
+
+<body style="margin-bottom: 50px;">
+    <h1>How to start with Machine Learning?</h1>
+    <p>
+        This article is always a WIP, though I have been asked this by so many juniors that I thought it
+        would be better to write it down, so I don't forget any details. I gave a session
+        [<a href="https://docs.google.com/presentation/d/1YfSpsF1VzESRTsmBJULyO1ndjawNZA62TKIo6HdblPU/edit?usp=sharing">slides</a>] 
+        at BITS Goa about the same. I will primarily be summarizing that, but that had a lot of BITS
+        specific advice.
+    </p>
+    <h2 style="margin-bottom: 0px;">Table of Contents</h2>
+    <ul style="margin-bottom: 0%;">
+        <li>
+            <a href="#why-ml" target="_self">Why ML (brief)?</a>
+        </li>
+        <li>
+            <a href="#courses" target="_self">Courses</a>
+        </li>
+        <li>
+            <a href="#capstone" target="_self">Capstone Project</a>
+        </li>
+        <li>
+            <a href="#caveats" target="_self">Caveats</a>
+        </li>
+    </ul>
+
+    <h3 id="why-ml" style="margin-bottom: 0px;">Why ML (brief)?</h3>
+    <p>
+        I think a lot of people can motivate this much better than me, and let's be honest if you didn't
+        know, you wouldn't be reading this. However, I got into ML (my very first motivation) to get a
+        high-paying job without preparing for a traditional coding interview. However, over time, I really
+        started to like the field and now am much more into research because it's fun.
+    </p>
+    <p>
+        I think that will always be a central motivation for most people. There are other reasons as well,
+        I personally think that an ML job is much more fun than an equal paying SWE job, I have seen
+        several top engineers take up ML roles, but have not seen the reverse at all. In my opinion, its
+        close to the level of dynamic research you would get to do in a quant role, but is much more
+        approachable (at least MLE roles). From an academic standpoint, it is <i>the</i> hottest field
+        right now, with the most funding, most attention, etc.
+        <a href="https://deepmind.google/discover/blog/demis-hassabis-john-jumper-awarded-nobel-prize-in-chemistry/">
+        Authors of the AlphaFold paper recently won the Nobel Prize in Chemistry</a>.
+    </p>
+    <p>
+        I also believe that entry level ML positions will become much harder in the coming years (like
+        SWE roles) and now is a great time to get into the field. Finally, I think the field is still ripe
+        to harvest, i.e., it will continue to be relevant in the near future. Please read the
+        <a href="#caveats" target="_self">Caveats</a> section before anything else.
+    </p>
+
+    <h3 id="courses" style="margin-bottom: 0px;">Courses</h3>
+    <p>
+        The following parts are much less subjective but are still my opinions. For an up-to-date resource
+        list, I would point anyone to <a href="https://saidl.in">SAiDL</a>'s latest assignment. I knew a
+        bit of python, and anyone can pick it up along the way, any standard Python course would be
+        adequate. I started with two Coursera courses, and would highly recommend them,
+        [<a href="https://www.coursera.org/specializations/machine-learning-introduction">ML Specialization</a>]
+        and
+        [<a href="https://www.coursera.org/specializations/deep-learning">DL Specialization</a>].
+        I finished the ML specialization in about 10 days, but was doing the course full-time. I think it
+        is a great introduction and touches the surface of several algorithms & applications. The DL
+        specialization took much more time (about 3 months), but I was doing it with a full semester's
+        course load<span class="special-hover"><sup>1</sup><span class="tooltip">I especially enjoyed
+        writing the BPTT for an LSTM layer in numpy</span></span>. This course is more technical and
+        assumes prior knowledge in linear algebra and statistics. Though for both of these courses, I would
+        say that undergraduate level courses in these topics would be sufficient. You can start earlier as
+        well, it might take more time to learn and do the course.
+    </p>
+    <p>
+        Next, along with the DL specialization, I was also doing Stanford's
+        <a href="https://cs231n.stanford.edu/">cs231n</a>. Note that this course overlaps a lot
+        with the DL specialization but I would still recommend this, because they both have some edge on
+        each other, for e.g., the DL specialization has case studies, which are important (I was in fact
+        asked one of them as a question in an interview I gave); while cs231n's later lectures cover topics
+        which are not a part of the specialization. Just skip a lecture if you think you know the content.
+        cs231n is also updated regularly, and so it's final assignment is a must do. I would urge anyone
+        following this to do <i>all the optional parts in any assignment</i> in the specialization or
+        cs231n. I also made detailed lecture notes, and would ask you to do the same.
+    </p>
+    <p>
+        After these 3 courses, you should be sufficiently proficient in ML implementation to take on a
+        substantial project, for e.g. through Kaggle. So the next path I propose is not mandatory. It did
+        help me establish a solid background and also specialize in a niche (then).
+    </p>
+    <details>
+        <summary>Extra</summary>
+        <p>
+            I did two more courses from Stanford Online on YouTube, the first one is
+            <a href="https://cs229.stanford.edu/">cs229</a> (fall 2017 version, taught by Andrew Ng). This
+            is a huge superset of the ML specialization, and is really math heavy, especially the
+            assignments. I am taking (or took) 
+            <a href="https://www.cs.cmu.edu/~nihars/teaching/10715-Fa23/index.html">10-715</a> at CMU (the
+            hardest intro. to ML course there) and this course has significant overlap. This truly created
+            a very strong foundation, and I would totally recommend this to anyone who loves math and wants
+            to get into theory research. Implementation wise this course is much easier, the coding
+            assignments were not as hard as cs231n. Before any interview, I make sure to refer back to my
+            notes from cs231n and cs229 for a quick revision.
+        </p>
+        <p>
+            Next, I wanted to specialize after these much more "general" courses, and picked graphs because
+            it seemed complicated and fun. So I did 
+            <a href="https://web.stanford.edu/class/cs224w/">cs224w</a> (fall 2021 version, which is on
+            YouTube). I think this course is easier compared to cs231n or cs229, however, only do this
+            course if you would like to (or think to) specialize in this area. Otherwise, Stanford's
+            <a href="https://web.stanford.edu/class/cs224n/">cs224n</a> (NLP with DL) or other courses
+            according to your future niche would be better.
+        </p>
+    </details>
+
+    <h3 id="capstone" style="margin-bottom: 0px;">Capstone Project</h3>
+    <p>
+        If you followed through with the courses section, you probably know as much ML any MLE would know
+        in theory, and now it's more about applying it. Kaggle Competitions or a substantial research
+        oriented project is really important, otherwise most of the skills you just developed will take a
+        backseat, as real-world projects are much more about application than discovery. In my very biased
+        opinion, I would once again point you to any <a href="https://saidl.in">SAiDL</a> assignment
+        question, solving even one end-to-end would be pretty good! We put a lot of effort into these
+        questions.
+    </p>
+    <p>
+        All of these components would really make you ready for a real-world project, either through
+        research or an internship. If done properly, all of this can be finished in about 6 months (this is
+        also how long it took me), or less.
+    </p>
+
+    <h3 id="caveats" style="margin-bottom: 0px;">Caveats</h3>
+    <p>
+        There are some caveats to all this, while I do believe ML roles are more fun, most big MLE roles or
+        even internships need an MS degree or equivalent experience. Research Scientist roles are even more
+        hard to break into and need a PhD (or equivalent experience) usually. Talking about India
+        specifically, most MLE roles are in Indian startups, though a few are opening up, e.g. in
+        DeepMind's MLO team led by <a href="https://www.prateekjain.org/">Prateek Jain</a>, I think even
+        Meta is opening an office in Bangalore. While these may increase, as I pointed out, these will be
+        insanely competitive and will get harder to get into. I do think that some quant firms take ML
+        interns in their Bachelor's, but these are also not easy. On a positive note, there are a lot of
+        opportunities outside of India, and Startups (Indian or otherwise) are doing fantastic work and
+        those roles are much more accessible.
+    </p>
+    <p>
+        The situation for an academic is vastly different though, if you plan on joining academia, an ML
+        faculty position would be as hard / as easy as a CS faculty position, depending on the institute.
+        I do not have any strong opinions on this part.
+    </p>
+</body>
+</html>

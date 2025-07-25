@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <head>
+        <!-- Hi, Karan Here. Please DELETE the two <script> tags below if you use this HTML, otherwise my analytics will track your page -->
+
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-FZYHPBJ2NN"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-FZYHPBJ2NN');
+        </script>
+
+        <link rel="icon" type="image/png" href="../images/candle.jpg">
+        <base target="_blank">
+    </head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Articles</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: baseline;
+            justify-content: center;
+            margin: 0;
+            text-align: justify;
+            padding-left: 20%;
+            padding-right: 20%;
+        }
+    </style>
+</head>
+<style>
+    a {
+        color: crimson;
+        text-decoration: none;
+    }
+    a:hover {
+        color: black;
+        /* text-decoration: underline;
+        text-decoration-color: black; */
+    }
+    /* Erdos Number chain */
+    .special-hover {
+        position: relative;
+        text-decoration: underline;
+        text-decoration-style: dotted;
+        cursor: pointer;
+    }
+    .tooltip {
+        display: none;
+        position: absolute;
+        top: -25px;  /* Position below the text */
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: black;
+        color: white;
+        padding: 5px 5px;
+        white-space: nowrap;
+        font-size: 12px;
+    }
+    .special-hover:hover .tooltip {
+        display: block;
+    }
+    p {
+        margin-bottom: 5px;
+    }
+    pre {
+        margin-bottom: 0px;
+    }
+</style>
+
+<body style="margin-bottom: 50px;">
+    <h1>Setting up LaTeX locally (Mac)</h1>
+    <p>
+        I have been using LaTeX locally for quite some time, I'm not sure how common this is outside India,
+        but I haven't seen it around me as much. It works like a charm for me. Also the script in
+        <a href="#texcompile" target="_self"><code>texcompile</code></a> is too useful to not share.
+    </p>
+
+    <h2 style="margin-bottom: 0px;">Table of Contents</h2>
+    <ul style="margin-bottom: 0%;">
+        <li>
+            <a href="#why" target="_self">Why?</a>
+        </li>
+        <li>
+            <a href="#setup" target="_self">Setup</a>
+        </li>
+        <li>
+            <a href="#texcompile" target="_self"><code>texcompile</code></a>
+        </li>
+    </ul>
+
+    <h3 id="why" style="margin-bottom: 0px;">Why?</h3>
+    <p>
+        First, this article is necessary from my experience in BITS. Basically no one uses LaTeX locally.
+        To be fair it's also not instrumental for most people, for e.g., assignments are not required to be
+        typed. In the cases that it is used, like paper-writing or assignment creation (if you're a TA),
+        <a href="https://overleaf.com/">overleaf</a> is necessary because of the collaborative aspect.
+    </p>
+    <p>
+        However, I have been stuck in a few cases (flights, buses, etc.) with limited connectivity where I
+        wanted to write and view tex files. Also because no one had done this, I wanted to do it as a fun
+        thing. Apart from this initial motivation, I would strongly suggest using local LaTeX for anything
+        where you don't have to collaborate: posters, notes, assignments, etc. The latency difference is
+        massive. Overleaf can take about 3 seconds per compile (from when you hit
+        <code>⌘ + S</code> and the new content becomes visible), this can get worse
+        if you have bad network connection, or if the server is crowded right before a deadline. Whereas my
+        local setup can compile the same in a few ms. This basically means you spend no time at all
+        waiting.
+    </p>
+    <p>
+        Finally, overleaf is maintained really well but it is still a system that could fail. If a downtime
+        happens right before some deadline (highly unlikely), it could be a pretty nasty experience.
+    </p>
+
+    <h3 id="setup" style="margin-bottom: 0px;">Setup</h3>
+    <p>
+        The setup is quite simple, just a single command to install <code>basictex</code>.
+        <pre>
+            <code>brew install --cask basictex</code>
+        </pre>
+
+        This will give you access to most things required. You can check your installation with
+        <pre>
+            <code>
+pdflatex --version
+bibtex --version
+tlmgr --version
+            </code>
+        </pre>
+
+        If you need any other package, the default command is
+        <pre>
+            <code>sudo tlmgr install &lt;package_name></code>
+        </pre>
+
+        This installation is about 150MB whereas the whole MacTex installation can take a couple of GBs.
+        In edit LaTeX in VSCode, and there is a simple extension for syntax highlighting. This has some
+        issues, for e.g., $ will not autoclose!
+    </p>
+    <p>
+        <a href="https://www.tug.org/texlive/">TexLive</a> releases an update every year,
+        <code>basictex</code> makes it really easy to update the whole system.
+        <pre>
+            <code>sudo tlmgr update --self</code>
+        </pre>
+        Then you can run a similar command
+        <pre>
+            <code>sudo tlmgr update --all</code>
+        </pre>
+        to update all the packages.
+    </p>
+
+    <h3 id="texcompile" style="margin-bottom: 0px;"><code>texcompile</code></h3>
+    <p>
+        I saved the following script and made it an executable, and then sourced it in my
+        <code>.zshrc</code>.
+        <details>
+        <summary>Expand (quite big)</summary>
+        <pre>
+            <code>
+#!/bin/bash
+# ~Courtesy of Claude 3.7~
+
+texcompile() {
+    # Default values
+    local file="main"
+    local bibengine="default"
+    local quick=false
+    local clean=false
+    local verbose=false
+    local help=false
+    local open=false
+
+    # Parse arguments
+    while [[ $# -gt 0 ]]; do
+        case "$1" in
+            -f|--file)
+                file="${2%.tex}"  # Remove .tex extension if present
+                shift 2
+                ;;
+            --no_bib)
+                # No bibliography processing
+                if [[ "$bibengine" == "default" ]]; then
+                    bibengine=""
+                else
+                    echo "Please pass only one of --no_bib, --bibtex, --biblatex"
+                    return 1
+                fi
+                shift
+                ;;
+            --bibtex)
+                if [[ "$bibengine" == "default" ]]; then
+                    bibengine="bibtex"
+                else
+                    echo "Please pass only one of --no_bib, --bibtex, --biblatex"
+                    return 1
+                fi
+                shift
+                ;;
+            --biblatex)
+                if [[ "$bibengine" == "default" ]]; then
+                    bibengine="biber"
+                else
+                    echo "Please pass only one of --no_bib, --bibtex, --biblatex"
+                    return 1
+                fi
+                shift
+                ;;
+            -q|--quick|--update)
+                quick=true
+                shift
+                ;;
+            -c|--clean)
+                clean=true
+                shift
+                ;;
+            -v|--verbose)
+                verbose=true
+                shift
+                ;;
+            -p|--open)
+                open=true
+                shift
+                ;;
+            -h|--help)
+                help=true
+                shift
+                ;;
+            *)
+                # If no flag is provided, assume it's the filename
+                if [[ "$1" != -* ]]; then
+                    file="${1%.tex}"  # Remove .tex extension if present
+                    shift
+                else
+                    echo "Unknown option: $1"
+                    help=true
+                    shift
+                fi
+                ;;
+        esac
+    done
+
+    # Display help
+    if $help; then
+        echo "Usage: texcompile [options] [filename]"
+        echo "Options:"
+        echo "  -f, --file FILENAME     Specify the LaTeX file to compile (without .tex extension)"
+        echo "  --no_bib                No references in the file (will not run bibtex or biblatex)"
+        echo "  --bibtex                Use BibTeX for bibliography (default)"
+        echo "  --biblatex              Use Biber for bibliography"
+        echo "  -q, --quick, --update   Quick compilation (only run pdflatex once)"
+        echo "  -c, --clean             Clean auxiliary files after compilation"
+        echo "  -v, --verbose           Show detailed output"
+        echo "  -p, --open              Open the PDF after compilation"
+        echo "  -h, --help              Show this help message"
+        return 0
+    fi
+
+    # Check if file exists (with or without extension)
+    if [[ ! -f "${file}.tex" ]]; then
+        echo "Error: ${file}.tex not found."
+        return 1
+    fi
+
+    echo "Compiling ${file}.tex..."
+
+    # print a message if bibengine is empty
+    if [[ -z "$bibengine" ]]; then
+        echo "No bibliography processing will be performed (only 2 pdflatex runs)."
+    fi
+
+    # if the bibengine is none, i.e., not specified, then use bibtex by default
+    if [[ "$bibengine" == "default" ]]; then
+        bibengine="bibtex"
+    fi
+
+    # Function to run a command with or without verbose output
+    run_cmd() {
+        if $verbose; then
+            eval "$@"
+        else
+            eval "$@ > /dev/null 2>&1"
+        fi
+        return $?
+    }
+
+    # Quick compilation (single run)
+    if $quick; then
+        if ! run_cmd "pdflatex ${file}"; then
+            echo "Error: pdflatex compilation failed."
+            return 1
+        fi
+    else
+        # Full compilation (multiple runs)
+        if ! run_cmd "pdflatex ${file}"; then
+            echo "Error: First pdflatex run failed."
+            return 1
+        fi
+
+        # Process bibliography
+        if [[ -n "$bibengine" ]]; then
+            if grep -q "\\\\bibliography" "${file}.tex" || grep -q "\\\\addbibresource" "${file}.tex"; then
+                echo "Processing bibliography with $bibengine..."
+                if [[ "$bibengine" == "bibtex" ]]; then
+                    if ! run_cmd "bibtex ${file}"; then
+                        echo "Error: bibtex processing failed."
+                        return 1
+                    fi
+                else  # biber
+                    if ! run_cmd "biber ${file}"; then
+                        echo "Error: biber processing failed."
+                        return 1
+                    fi
+                fi
+            fi
+
+            # Additional runs to resolve references
+            if ! run_cmd "pdflatex ${file}"; then
+                echo "Error: Second pdflatex run failed."
+                return 1
+            fi
+        fi
+
+        if ! run_cmd "pdflatex ${file}"; then
+            echo "Error: Final pdflatex run failed."
+            return 1
+        fi
+    fi
+
+    # Clean auxiliary files if requested
+    if $clean; then
+        echo "Cleaning auxiliary files..."
+        rm -f "${file}.aux" "${file}.log" "${file}.out" "${file}.toc" "${file}.lof" "${file}.lot"
+        rm -f "${file}.bbl" "${file}.blg" "${file}.bcf" "${file}.run.xml" "${file}.synctex.gz" "${file}.brf"
+        rm -f "${file}.nav" "${file}.snm" "${file}.vrb"  # Beamer-specific files
+    fi
+
+    # Check if PDF was created successfully
+    if [[ -f "${file}.pdf" ]]; then
+        echo "Successfully compiled ${file}.pdf"
+
+        # Open the PDF if requested
+        if $open; then
+            if command -v open &> /dev/null; then
+                open "${file}.pdf"
+            else
+                echo "Could not find a suitable command to open the PDF."
+            fi
+        fi
+    else
+        echo "Error: Failed to generate PDF file."
+        return 1
+    fi
+
+    return 0
+}
+            </code>
+        </pre>
+        </details>
+    </p>
+    <p>
+        You can check all flags by running
+        <pre>
+            <code>texcompile -h</code>
+        </pre>
+
+        For any project that I want to compile, I will first do a run of
+        <pre>
+            <code>texcompile &lt;fname> # (.tex is optional) </code>
+        </pre>
+
+        This might take a couple of seconds and creates all the auxiliary files, resolves cross references
+        and citations, the sequence is
+        <pre>
+            <code> pdflatex -> bibtex / biblatex -> pdflatex -> pdflatex</code>
+        </pre>
+
+        Once this is run, until a new citation or a cross reference is added, you only need to run a single
+        pdflatex, and the generated auxiliary files are enough to resolve references and citations, i.e., I
+        use
+        <pre>
+            <code>texcompile -q &lt;fname></code>
+        </pre>
+
+        Finally once you are happy and have made the edits, do a final run with
+        <pre>
+            <code>texcompile -p -c &lt;fname></code>
+        </pre>
+
+        This will delete all the auxiliary files, and open the PDF for final inspection.
+    </p>
+    <p>
+        Finally, to get an overleaf like experience, you can also add this command as a shortcut in VSCode,
+        though I think running it this way is more controllable. Sometimes (or most times in the start),
+        there might be several missing packages, if the compilation is stuck, I terminate it with
+        <code>Ctrl+d</code>, and then run
+        <pre>
+            <code>texcompile -v</code>
+        </pre>
+        This will be verbose and show the error.
+    </p>
+</body>
+</html>
