@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <head>
+        <!-- Hi, Karan Here. Please DELETE the two <script> tags below if you use this HTML, otherwise my analytics will track your page -->
+
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-FZYHPBJ2NN"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-FZYHPBJ2NN');
+        </script>
+
+        <link rel="icon" type="image/png" href="../images/candle.jpg">
+        <base target="_blank">
+    </head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Articles</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: baseline;
+            justify-content: center;
+            margin: 0;
+            text-align: justify;
+            padding-left: 20%;
+            padding-right: 20%;
+        }
+    </style>
+</head>
+<style>
+
+    /* Hyperlink modification */
+    a {
+        color: teal;
+        text-decoration: none;
+    }
+    a:hover {
+        color: gray;
+        /* text-decoration: underline;
+        text-decoration-color: black; */
+    }
+    /* Erdos Number chain */
+    .special-hover {
+        position: relative;
+        text-decoration: underline;
+        text-decoration-style: dotted;
+        cursor: pointer;
+    }
+    .tooltip {
+        display: none;
+        position: absolute;
+        top: -25px;  /* Position below the text */
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: black;
+        color: white;
+        padding: 5px 5px;
+        white-space: nowrap;
+        font-size: 12px;
+    }
+    .special-hover:hover .tooltip {
+        display: block;
+    }
+    p {
+        margin-bottom: 5px;
+    }
+</style>
+
+<body style="margin-bottom: 50px;">
+    <h1>Restoring dates for images</h1>
+    <i>Last edited: 19th October 2025</i>
+    <p>
+        I had previously tried transferring photos from an old phone to a new one, and on my first time, I did
+        not keep a backup and moved photos to the new phone directly. To my surprise (back then), all the
+        photos lost their original dates and got the transfer date :/. One Computer Science bachelor's
+        degree later, I think I have a reasonable solution to this.
+    </p>
+    <p>
+        To follow along, I assume you have a decently new phone (Android or iOS), a computer (preferrably
+        Mac / Linux), and an OTG where you can transfer the photos. This involves some back and forth
+        between the phone-OTG and computer-OTG connections. Depending on the size, this transfer can take
+        anywhere from seconds to hours. Some phones need special settings / permissions to allow for OTG
+        connections, check those if you don't get a notification from your phone when you connect the OTG.
+    </p>
+
+    <h2 style="margin-bottom: 0px;">Steps</h2>
+    <ol style="margin-bottom: 0%;" start="0">
+        <li>
+            <a href="#basecase" target="_self">Base Case</a>
+        </li>
+        <li>
+            <a href="#segregate" target="_self">Segregate</a>
+        </li>
+        <li>
+            <a href="#exif" target="_self">EXIF</a>
+        </li>
+        <li>
+            <a href="#move" target="_self">Move</a>
+        </li>
+        <li>
+            <a href="#com" target="_self">com. stuff</a>
+        </li>
+    </ol>
+
+    <h3 id="basecase" style="margin-bottom: 0px;">Base Case</h3>
+    <p>
+        First off, zipping and moving always preserves the all dates. This is the first thing you
+        should try. Some phones even allow for compression <i>directly on the OTG</i> -- select all folders
+        / photos, tap on the 3 dots (or analogous symbol) and hit compress; then select a place inside the
+        OTG. If your total size is not a lot, you can compress on the device, no need to move, though this
+        won't be possible usually, because if you want to transfer 20GB of photos, you need at-least that
+        much reserve space (because images and videos can't be compressed much more).
+    </p>
+    <p>
+        This is a problem for big transfers as your phone's temporrary storage will fill up midway and the
+        compression will fail. If this happens you can compress part-by-part (manually, boring) or look at
+        further steps.
+    </p>
+
+    <h3 id="segregate" style="margin-bottom: 0px;">Step 1: Segregate</h3>
+    <p>
+        All photos do not contain restorable date data, i.e.,
+        <a href="https://en.wikipedia.org/wiki/Exif">EXIF</a>, for e.g., for a picky person like me, I want
+        to preserve the dates of pins that I download from pinterest, however, once these photos are moved,
+        there is no way to restore their dates. For this and the next few sections, I am talking about the
+        folders which you would have inside the DCIM folder (I have no idea about the Apple analogue).
+    </p>
+    <p>
+        Some other such sources are Instagram and Snapchat (if you find anything else, please let me know).
+        Snapchat has this really annoying format where each snap is saved like "Snapchat-xxxxxxxxxx.jpg",
+        this is really dumb because the xs are generated at random! This could easily represent the date
+        and / or time in UNIX format.
+    </p>
+    <p>
+        You can check for such cases by <b><i>copying</i></b> (NOT moving) one or a few images to your OTG,
+        then connecting it to a PC. For a Mac, you can open this photo with Preview, go to Tools, and then
+        to Inspector. There should be an EXIF field inside the "i" tag in the dialog box. The EXIF field,
+        if exists contains the exact date and time. You should segregate folders and keep track which
+        contain, EXIF and which don't.
+    </p>
+
+    <h3 id="move" style="margin-bottom: 0px;">Step 2. Move</h3>
+    <p>
+        If the EXIF field doesn't exist, the <i>only</i> way to preserve dates is to move with zipping.
+        These individual folders shouldn't be too big as to prevent zipping and moving. In case they are,
+        then you will have to manually move photos in smaller batches, or write a script to do this. This
+        wasn't a problem for me (if you find something, do let me know!).
+    </p>
+    <p>
+        The first step required a bit of manual effort, for this case, if you know all files in some folder
+        have EXIF data, you can directly move it to the OTG. Then first install exiftool and run this on
+        your PC, inside the OTG.
+    </p>
+    <pre>
+        <code>
+            exiftool "-FileCreateDate&lt;DateTimeOriginal" "-FileModifyDate&lt;DateTimeOriginal" -r .
+        </code>
+    </pre>
+
+    <h3 id="com" style="margin-bottom: 0px;">Step 3. com. stuff</h3>
+    <p>
+        Some apps, like whatsapp, store images, audio, video, etc. in a separate location inside the
+        Android folder (usually com.&lt;app name&gt;). In my case, it was only WhatsApp here. I'm not sure if
+        these images have EXIF data, they might, but they anyways contain the exact date when they
+        were taken in their filename. You can use the script below to extract and reset the dates properly.
+    </p>
+    <p>
+        In such cases you can also restore dates for video / audio.
+    </p>
+    <p>
+        I used the following script to accompilsh this, run it inside the OTG after transferring the com.
+        folder.
+        <details>
+        <summary>Expand (quite big)</summary>
+        <pre>
+            <code>
+#!/usr/bin/env python
+"""
+Script to restore file dates from filenames
+Supports various filename patterns with embedded dates/times
+"""
+
+import os
+import re
+import subprocess
+from datetime import datetime
+from pathlib import Path
+import argparse
+
+def extract_datetime_from_filename(filename):
+    """
+    Extract datetime from various filename patterns
+    Returns (datetime_obj, confidence_level) or (None, None)
+    """
+    basename = os.path.basename(filename)
+    
+    # Pattern 1: WhatsApp format - STK/VID/IMG-YYYYMMDD-WA####
+    pattern1 = re.search(r'(STK|VID|IMG)-(\d{8})-WA\d+', basename)
+    if pattern1:
+        date_str = pattern1.group(2)
+        try:
+            dt = datetime.strptime(date_str, '%Y%m%d')
+            return dt, "date_only"
+        except ValueError:
+            pass
+    
+    # Pattern 2: Screenshot with full datetime - Screenshot_YYYYMMDD-HHMMSS_App
+    pattern2 = re.search(r'Screenshot_(\d{8})-(\d{6})_', basename)
+    if pattern2:
+        date_str = pattern2.group(1)
+        time_str = pattern2.group(2)
+        try:
+            dt = datetime.strptime(f"{date_str}{time_str}", '%Y%m%d%H%M%S')
+            return dt, "full_datetime"
+        except ValueError:
+            pass
+    
+    # Pattern 3: Camera format - VID/IMG + YYYYMMDDHHMMSS
+    pattern3 = re.search(r'(VID|IMG)?(\d{8})(\d{6})', basename)
+    if pattern3:
+        date_str = pattern3.group(2)
+        time_str = pattern3.group(3)
+        try:
+            dt = datetime.strptime(f"{date_str}{time_str}", '%Y%m%d%H%M%S')
+            return dt, "full_datetime"
+        except ValueError:
+            pass
+    
+    # Pattern 4: Standard format - YYYYMMDD_HHMMSS
+    pattern4 = re.search(r'(\d{8})_(\d{6})', basename)
+    if pattern4:
+        date_str = pattern4.group(1)
+        time_str = pattern4.group(2)
+        try:
+            dt = datetime.strptime(f"{date_str}{time_str}", '%Y%m%d%H%M%S')
+            return dt, "full_datetime"
+        except ValueError:
+            pass
+    
+    # Pattern 5: SquarePic format - SquarePic_YYYYMMDD_HHMMSS##
+    pattern5 = re.search(r'SquarePic_(\d{8})_(\d{6})\d*', basename)
+    if pattern5:
+        date_str = pattern5.group(1)
+        time_str = pattern5.group(2)
+        try:
+            dt = datetime.strptime(f"{date_str}{time_str}", '%Y%m%d%H%M%S')
+            return dt, "full_datetime"
+        except ValueError:
+            pass
+    
+    # Pattern 6: PicsArt format - PicsArt_MM-DD-YY.HH.MM.SS.jpg
+    pattern6 = re.search(r'PicsArt_(\d{2})-(\d{2})-(\d{2})\.(\d{2})\.(\d{2})\.(\d{2})', basename)
+    if pattern6:
+        month_str = pattern6.group(1)
+        day_str = pattern6.group(2)
+        year_str = pattern6.group(3)
+        hour_str = pattern6.group(4)
+        minute_str = pattern6.group(5)
+        second_str = pattern6.group(6)
+        try:
+            # Convert 2-digit year to 4-digit (assuming 21st century)
+            year = 2000 + int(year_str)
+            dt = datetime(year, int(month_str), int(day_str), 
+                         int(hour_str), int(minute_str), int(second_str))
+            return dt, "full_datetime"
+        except ValueError:
+            pass
+    
+    # Pattern 7: Format with prefix and datetime - ####-##########_YYYYMMDD_HHMMSS_####
+    pattern7 = re.search(r'\d+-\d+_(\d{8})_(\d{6})_\d+', basename)
+    if pattern7:
+        date_str = pattern7.group(1)
+        time_str = pattern7.group(2)
+        try:
+            dt = datetime.strptime(f"{date_str}{time_str}", '%Y%m%d%H%M%S')
+            return dt, "full_datetime"
+        except ValueError:
+            pass
+    
+    # Pattern 8: Simple date patterns - YYYYMMDD anywhere in filename
+    pattern8 = re.search(r'(\d{8})', basename)
+    if pattern8:
+        date_str = pattern8.group(1)
+        try:
+            # Validate it's a reasonable date
+            year = int(date_str[:4])
+            if 1990 <= year <= 2030:  # Reasonable range for photos
+                dt = datetime.strptime(date_str, '%Y%m%d')
+                return dt, "date_only"
+        except ValueError:
+            pass
+    
+    return None, None
+
+def set_file_times(filepath, dt):
+    """
+    Set both access time and modification time of a file
+    """
+    timestamp = dt.timestamp()
+    filepath_str = str(filepath)
+    os.utime(filepath, (timestamp, timestamp))
+    # Use SetFile from Xcode Command Line Tools
+    date_str = dt.strftime("%m/%d/%Y %H:%M:%S")
+    subprocess.run([
+        'SetFile', '-d', date_str, filepath_str
+    ], check=True, capture_output=True)
+
+def has_reset_date(filepath):
+    """
+    Check if file has a reset date (Jan 1 or Jan 2, 2010)
+    indicating it was affected by file transfer
+    """
+    try:
+        stat = filepath.stat()
+        file_date = datetime.fromtimestamp(stat.st_mtime)
+        return (file_date.year == 2010 and 
+                file_date.month == 1 and 
+                file_date.day in [1, 2])
+    except (OSError, ValueError):
+        return False
+
+def process_files(root_dir, dry_run=True):
+    """
+    Process all files in directory recursively
+    Only processes files with reset dates (Jan 1-2, 2010)
+    """
+    root_path = Path(root_dir)
+    
+    if not root_path.exists():
+        print(f"Error: Directory '{root_dir}' does not exist")
+        return
+    
+    stats = {
+        'total_files': 0,
+        'reset_date_files': 0,
+        'processed': 0,
+        'full_datetime': 0,
+        'date_only': 0,
+        'no_date_found': 0,
+        'errors': 0,
+        'skipped_non_reset': 0
+    }
+    
+    no_date_files = []
+    
+    print(f"{'DRY RUN - ' if dry_run else ''}Processing files in: {root_dir}")
+    print("-" * 60)
+    
+    for filepath in root_path.rglob('*'):
+        if filepath.is_file():
+            stats['total_files'] += 1
+            
+            # Only process files with reset dates
+            if not has_reset_date(filepath):
+                stats['skipped_non_reset'] += 1
+                continue
+                
+            stats['reset_date_files'] += 1
+            
+            try:
+                dt, confidence = extract_datetime_from_filename(str(filepath))
+                
+                if dt is not None:
+                    stats['processed'] += 1
+                    if confidence == "full_datetime":
+                        stats['full_datetime'] += 1
+                        time_str = dt.strftime("%Y-%m-%d %H:%M:%S")
+                    else:  # date_only
+                        stats['date_only'] += 1
+                        time_str = dt.strftime("%Y-%m-%d 00:00:00")
+                    
+                    print(f"✓ {filepath.absolute()} -> {time_str}")
+                    
+                    if not dry_run:
+                        set_file_times(filepath, dt)
+                        
+                else:
+                    stats['no_date_found'] += 1
+                    no_date_files.append(str(filepath))
+                    print(f"✗ {filepath.absolute()} -> No date pattern found")
+                    
+            except Exception as e:
+                stats['errors'] += 1
+                print(f"ERROR: {filepath.absolute()} -> {str(e)}")
+    
+    # Print summary
+    print("\n" + "="*60)
+    print("SUMMARY:")
+    print(f"Total files found: {stats['total_files']}")
+    print(f"Files with reset dates (Jan 1-2, 2010): {stats['reset_date_files']}")
+    print(f"Files skipped (not reset dates): {stats['skipped_non_reset']}")
+    print(f"Successfully processed: {stats['processed']}")
+    print(f"  - With full date/time: {stats['full_datetime']}")
+    print(f"  - With date only: {stats['date_only']}")
+    print(f"No date pattern found: {stats['no_date_found']}")
+    print(f"Errors: {stats['errors']}")
+    
+    if no_date_files:
+        print(f"\nFiles without extractable dates:")
+        for filepath in no_date_files[:10]:  # Show first 10
+            print(f"  {filepath}")
+        if len(no_date_files) > 10:
+            print(f"  ... and {len(no_date_files) - 10} more")
+
+def main():
+    parser = argparse.ArgumentParser(
+        description="Restore file dates from filenames",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog="""
+Examples:
+  %(prog)s /path/to/files --dry-run    # Preview what will be changed
+  %(prog)s /path/to/files              # Actually modify file dates
+  %(prog)s .                          # Process current directory
+        """
+    )
+    
+    parser.add_argument('directory', help='Root directory to process')
+    parser.add_argument('--dry-run', action='store_true', default=True,
+                        help='Preview changes without modifying files (default)')
+    parser.add_argument('--apply', action='store_true',
+                        help='Actually modify file dates (overrides --dry-run)')
+    
+    args = parser.parse_args()
+    
+    # If --apply is specified, turn off dry_run
+    dry_run = not args.apply
+    
+    if dry_run:
+        print("DRY RUN MODE - No files will be modified")
+        print("Use --apply to actually change file dates")
+        print()
+    
+    process_files(args.directory, dry_run)
+
+if __name__ == "__main__":
+    main()
+
+            </code>
+        </pre>
+        </details>
+    </p>
+
+</body>
+</html>
