@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <head>
+        <!-- Hi, Karan Here. Please DELETE the two <script> tags below if you use this HTML, otherwise my analytics will track your page -->
+
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-FZYHPBJ2NN"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-FZYHPBJ2NN');
+        </script>
+
+        <link rel="icon" type="image/png" href="../images/candle.jpg">
+        <base target="_blank">
+    </head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Articles</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: baseline;
+            justify-content: center;
+            margin: 0;
+            text-align: justify;
+            padding-left: 20%;
+            padding-right: 20%;
+        }
+    </style>
+</head>
+<style>
+
+    /* Hyperlink modification */
+    a {
+        color: teal;
+        text-decoration: none;
+    }
+    a:hover {
+        color: gray;
+        /* text-decoration: underline;
+        text-decoration-color: black; */
+    }
+    /* Erdos Number chain */
+    .special-hover {
+        position: relative;
+        text-decoration: underline;
+        text-decoration-style: dotted;
+        cursor: pointer;
+    }
+    .tooltip {
+        display: none;
+        position: absolute;
+        top: -25px;  /* Position below the text */
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: black;
+        color: white;
+        padding: 5px 5px;
+        white-space: nowrap;
+        font-size: 12px;
+    }
+    .special-hover:hover .tooltip {
+        display: block;
+    }
+    p {
+        margin-bottom: 5px;
+    }
+</style>
+
+<body style="margin-bottom: 50px;">
+    <h1>How to prepare for Machine Learning (Research) Interviews?</h1>
+    <i>Last edited: 4th December 2025</i>
+    <p>
+        Once going through the process of applying and interviewing for a few ML research internships
+        (Summer 2026), I had a better view on what / how to prepare for this, and wanted to share my
+        approach. This is my personal opinion, and I will not reveal any specific questions from any
+        company. Also, I think this will not be very effective for MLE roles, or any role that isn't
+        substantially research oriented. This post is much longer than others.
+    </p>
+    <p>
+        Final note, I will provide lots of resources and links. It is impossible to cover and remember
+        everything even if you start early, it is important to know what stuff to prioritise according to
+        the firm. To establish a bit of credibility, I received an offer from Mistral AI for an AI
+        Scientist internship in their Palo Alto office.
+    </p>
+    <h2 style="margin-bottom: 0px;">Table of Contents</h2>
+    <ul style="margin-bottom: 0%;">
+        <li>
+            <a href="#overview" target="_self">Overview / General advice</a>
+        </li>
+        <li>
+            <a href="#cv" target="_self">CV / Résumé shortlisting</a>
+        </li>
+        <li>
+            <a href="#ml_rounds" target="_self">ML Rounds</a>
+        </li>
+        <li>
+            <a href="#coding_rounds" target="_self">Coding Rounds</a>
+        </li>
+        <li>
+            <a href="#final_rounds" target="_self">Final Rounds</a>
+        </li>
+    </ul>
+
+    <h3 id="overview" style="margin-bottom: 0px;">Overview / General advice</h3>
+    <p>
+        These interviews typically follow a structured process, with the exact details varying by company.
+        Usually, there will be a a <a href="#cv" target="_self">résumé screen</a>, followed by a couple of
+        <a href="#ml_rounds" target="_self">ML rounds</a> and / or
+        <a href="#coding_rounds" target="_self">coding rounds</a>, and finally some
+        <a href="#final_rounds" target="_self">logistics / HR rounds</a>. This process can take anywhere
+        from 2 weeks to a bit over a month, depending on the company's and your availability.
+        <b>Important:</b> Its quite likely that your first round will be a recruiter call, do not forget to
+        get as many details about the process as possible.
+    </p>
+    <p>
+        This is a significant time investment, and you will spend about 2-4 weeks of effort depending on
+        your background and preparation level.
+    </p>
+
+    <h3 id="cv" style="margin-bottom: 0px;">CV / Résumé shortlisting</h3>
+    <p>
+        This is almost always the first step of the process, unless you apply with a referral.
+        It is very hard to pinpoint what exactly makes a CV / Résumé standout, so I will instead describe
+        what I think is important. <b>Important:</b> Some firms will outright list what they want to see,
+        for those cases it is crucial to modify your document and add / remove stuff accordingly.
+    </p>
+    <p>
+        I made my document with LaTeX, and I would suggest doing this as well. I have provided a link
+        to my LaTeX source
+        [<a href="https://drive.google.com/file/d/1ykuqFeLraKCSauguLgcgbw_gxlKLNCNr/view?usp=sharing">link</a>].
+        It is important to read lots of job descriptions and you will realize the types of skills you can
+        highlight. For example, I had previously used LLMs for some data cleaning tasks, but I thought
+        these skills were not relevant, so I hadn't included them, but from what I saw, a lot of companies
+        would prefer to see experience with using LLMs to automate tasks. <b>Important:</b> Don't
+        underestimate seemingly "minor" technical experiences.
+    </p>
+    <p>
+        Also one thing to keep in mind (thanks to CMU's <a href="https://www.cmu.edu/career/">CPDC</a>) is
+        that each point in the document <i>must</i> have something you did and its impact, quantitative
+        preferred. Otherwise it can be pruned without affecting quality. It is also nice if you have a one
+        page version and just submit that, but this isn't a hard rule.
+    </p>
+    <p>
+        Regarding the structure, I think the format and sections I have used are quite well suited. Maybe
+        the only section that's missing is "Projects". In case you have a lot of publications,
+        strategically highlight the relevant ones according to the firm. I think research match is quite
+        important for these roles. To be clear, this can also be through coursework but applying solely
+        based on interest is probably not going to work out now (again my personal opinion).
+    </p>
+    <p>
+        <b>Important:</b> Making and updating the CV / Résumé is an ongoing process, and will take
+        significant time on the first go, do not rush it.
+    </p>
+
+    <h3 id="ml_rounds" style="margin-bottom: 0px;">Machine Learning Rounds</h3>
+    <p>
+        I think that these rounds test your competency in three areas (at the time of writing):
+        <ul>
+            <li>Machine Learning and Deep Learning Fundamentals</li>
+            <li>LLM training and inference optimizations</li>
+            <li>Your Research</li>
+        </ul>
+        These are quite broad areas, however, from my experience, firms will expect you to be significantly
+        strong in all of them.
+    </p>
+    <p>
+        <b>Important:</b> For this post, I have to advertise that this is my opinion again and again,
+        because I went through resources I was familiar with. A good way to start would be to probably ask
+        some LLM and get a list of resources.
+    </p>
+    <p>
+        For ML and DL Fundamentals, I would suggest revising your notes from your courses, or going through
+        cs229 [<a href="https://github.com/maxim5/cs229-2018-autumn">GitHub (unofficial)</a>] and cs231n
+        [<a href="https://cs231n.stanford.edu/">Website</a>]. <b>Important:</b> Note that I had done these
+        courses <i>previously</i>, if you haven't, then <b>DO NOT</b> start them from scratch. Instead pick
+        up a few topics you need to revise and just go through those lectures. Finally, I revised just
+        about everything from these except the last parts on RL. It takes significant effort even the
+        second time, about 2-3 days of full time work.
+    </p>
+    <p>
+        For LLM training and inference, this specific area might seem unlikely to be tested. If you know
+        this to be the case for the firm, I would still suggest going through some of the videos below as
+        they introduce distributed training and inference concepts in general, which is almost certainly
+        going to be tested (and useful!).
+    </p>
+    <p>
+        For this one, I went through MIT's 6.5940: TinyML and Efficient Deep Learning Computing
+        [<a href="https://hanlab.mit.edu/courses/2024-fall-65940">Website</a>]. I had not done this one
+        before, and so I was speedrunning lectures. I think the lectures on quantization and pruning are
+        important. Then a lot of Chapter II and the entire Chapter III is very useful. My goal with this
+        was not to remember every detail but to cover lots of surface area. This again depends on the firm
+        and their interview style. This took less effort than the others, about 2-3 days of watching 3-4
+        lectures a day. At the end, you should be familiar with basic types of parallelism for inference
+        and training.
+    </p>
+    <p>
+        Finally, your research. This is a part of the process which is necessary but not sufficient. You
+        will definitely get rejected if you are weak on this portion. It is important to have a very strong
+        grasp of one of your research projects, ideally the one that's relevant to the firm. I don't have
+        specific advice here, I guess it's a good habit to make slides for your paper, just when the
+        project ends, when it's fresh in your mind (I picked this up from
+        <a href="https://scholar.google.com/citations?user=zpNTeogAAAAJ&hl=en">Prof. Ashwin</a>).
+    </p>
+    <p>
+        I also found using LLMs to be very useful for these reviews, ask them to quiz you or create several
+        questions, and then also ask it to answer them.
+    </p>
+
+    <h3 id="coding_rounds" style="margin-bottom: 0px;">Coding Rounds</h3>
+    <p>
+        These rounds can involve both ML and the usual Data Structures and Algorithms (DSA) questions.
+        First, I'll talk about DSA stuff, because it's straightforward to prepare for.
+    </p>
+    <p>
+        I solved the entirety of the Blind75 list
+        [<a href="https://neetcode.io/practice/practice/blind75">link</a>].
+        These have video solutions, though I would strongly suggest also going through the solutions in
+        the editorial / discussions, and understanding <i>each one</i> of them. <b>Important:</b> I would
+        suggest not spending more than 15 minutes on any problem if you are stuck (take as much time for
+        the actual implementation as you need). If some concept is completely new to you, then try to watch
+        some video or read up on it. These problems may appear directly, but even if they don't they form a
+        nice basis for the pattern recognition required for DSA. Your goal is to kind of internalize these
+        problems at least. It should not take more than 15 minutes to solve any of these problems after you
+        have practiced them enough. This took me one week of full time effort, and I was familiar with most
+        of these concepts from my undergrad. If you are starting out fresh, it <i>will</i> take longer.
+        <b>Important:</b> This is usually the make-or-break round, so take enough time to prepare well.
+    </p>
+    <p>
+        If you want to test further, you can try the NeetCode 150 list
+        [<a href="https://neetcode.io/practice/practice/neetcode150">link</a>], or pick a few areas where
+        you think you might struggle.
+    </p>
+    <p>
+        ML Coding can be a bit tricky to prepare for, because it's quite broad. In general, you should know
+        basics of modern architectures <i>thoroughly</i>, and also their APIs in one popular framework
+        (e.g. PyTorch or TensorFlow). LLMs are also useful here. Ask one LLM to generate some code for a
+        type of ML algorithm (say convolutions) and then ask another LLM to find bugs and optimize this
+        code (vectorization, space complexity, etc.) This is extremely useful to get you thinking about the
+        internals of these algorithms. For transformers, the Arena blogs have nice exercises
+        [<a href="https://arena-chapter1-transformer-interp.streamlit.app/[1.1]_Transformer_from_Scratch">link</a>].
+        I was quite familiar with this, and revised them with cs229 and cs231n, so it took around 2-3 days
+        of effort. <b>Important:</b> I would advise against trying to implement everything from scratch.
+        The goal is to refresh quickly. If you really have a lot of time, this is not a bad idea.
+    </p>
+    <p>
+        In some cases you might even receive a take-home assignment. With or without that, a useful skill
+        is to have a good grip of accepted styles and best practices for code. Like type hints, docstrings,
+        etc. Also some internals of python like copy by reference or copy by value, list comprehensions,
+        etc. These are small things that can help you stand out.
+    </p>
+
+    <h3 id="final_rounds" style="margin-bottom: 0px;">Final Rounds</h3>
+    <p>
+        Final rounds are typically HR conversations to discuss logistics, compensation, and team placement.
+        It is important to understand that, you must say that the current firm is your top choice! This is
+        an obvious red flag otherwise.
+    </p>
+
+    <p>
+        All the best!
+    </p>
+
+</body>
+</html>
