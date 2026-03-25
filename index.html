@@ -19,71 +19,21 @@
     </head>
     <title>Karan Bania</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="styles/site.css">
 </head>
-
-<style>
-
-    /* Hyperlink modification */
-    a {
-        color: teal;
-        text-decoration: none;
-    }
-    a:hover {
-        color: gray;
-        /* text-decoration: underline;
-        text-decoration-color: black; */
-    }
-
-    /* Erdos Number chain */
-    .special-hover {
-        position: relative;
-        text-decoration: underline;
-        text-decoration-style: dotted;
-        cursor: pointer;
-    }
-    .tooltip {
-        display: none;
-        position: absolute;
-        top: -25px;  /* Position below the text */
-        left: 50%;
-        transform: translateX(-50%);
-        background-color: black;
-        color: white;
-        padding: 5px 5px;
-        white-space: nowrap;
-        font-size: 12px;
-    }
-    .special-hover:hover .tooltip {
-        display: block;
-    }
-    .intro-flex {
-        display: flex;
-        gap: 1.5rem;
-        align-items: flex-start;
-        flex-wrap: wrap;
-    }
-    .intro-flex img {
-        width: 200px;
-        height: auto;
-        flex: 0 0 auto;
-        cursor: pointer;
-    }
-    .intro-flex-content {
-        flex: 1 1 240px;
-        min-width: 240px;
-    }
-
-    a i { font-size: 1.4rem; margin: 0 4px; }
-</style>
 <body>
-    <div style="overflow: auto;">
-        <div style="float: left; width: 50%; margin-right: 5%; vertical-align: center;">
-            <h1>Karan Bania</h1>
+    <div class="page">
             <div class="intro-flex">
                 <a href="images/pfp.png" rel="noopener noreferrer">
                     <img width="100" src="images/pfp.png" alt="Karan Bania">
                 </a>
                 <div class="intro-flex-content">
+                    <h1>
+                        <span class="name-reveal" tabindex="0" aria-label="Gujarati name">
+                            Karan Bania
+                            <span class="tooltip">કરન બનિયા</span>
+                        </span>
+                    </h1>
                     <p>
                         I'm an MS student at <a href="https://www.cmu.edu/">CMU</a> in the
                         <a href="https://www.ml.cmu.edu/">Machine Learning Department</a>, very lucky to be
@@ -107,13 +57,9 @@
                     </p>
                 </div>
             </div>
-        </div>
+            <p class="photo-note">(This picture was taken at the <a href="https://en.wikipedia.org/wiki/Moritzburg_Castle">Moritzburg Castle</a> in Dresden)</p>
     </div>
 
-    <details>
-        <summary></summary>
-        This picture was taken at the <a href="https://en.wikipedia.org/wiki/Moritzburg_Castle">Moritzburg Castle</a> in Dresden.
-    </details>
     <p>
         <!-- <a href="https://github.com/karannb" target="_blank" rel="noopener noreferrer" style="padding: 5px;">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
@@ -141,9 +87,9 @@
             </svg>
         </a> -->
 
-    <h2 style="clear: both;">Brief Past</h2>
+    <h2>Brief Past</h2>
 
-    <p style="width: 50%;">
+    <p class="brief-past">
         I graduated with a B.E. at
         <a href="https://www.bits-pilani.ac.in/goa/">BITS Pilani, Goa Campus</a>, in the
         <a href="https://www.bits-pilani.ac.in/goa/computer-science-information-systems/">CS & IS</a>
