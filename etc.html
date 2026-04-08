@@ -1,30 +1,37 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <head>
-        <!-- Hi, Karan Here. Please DELETE the two <script> tags below if you use this HTML, otherwise my analytics will track your page -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FZYHPBJ2NN"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-FZYHPBJ2NN');
+    </script>
 
-        <!-- Google tag (gtag.js) -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-FZYHPBJ2NN"></script>
-        <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karan Bania - Etc</title>
+    <link rel="icon" type="image/png" href="images/candle.jpg">
+    <base target="_blank">
 
-        gtag('config', 'G-FZYHPBJ2NN');
-        </script>
-
-        <link rel="icon" type="image/png" href="images/candle.jpg">
-        <base target="_blank">
-    </head>
-    <title>Karan Bania</title>
+    <!-- Fonts & Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <!-- Refined Site Styles -->
     <link rel="stylesheet" href="styles/site.css">
 </head>
 <body>
-    <p>
-        If you find any grammatical or other mistakes in the articles, please do write to me!
-    </p>
-    <p>
+    
+    <div class="etc-content">
+        <!-- Theme Toggle -->
+        <a href="#" id="theme-toggle" class="theme-toggle-btn" title="Toggle Dark/Light Mode"><i id="theme-icon" class="fa-solid fa-moon"></i></a>
+
+        <p>
+            If you find any grammatical or other mistakes in the articles, please do write to me!
+        </p>
+        
         <ul>
             <li>
                 Advice from my experience
@@ -76,6 +83,39 @@
                 [list] <a href="articles/talks.html">List of talks / presentations I have given</a> (adding)
             </li>
         </ul>
-    </p>
+
+    </div>
+
+    <!-- Script to Handle Theme Toggling smoothly -->
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const currentTheme = localStorage.getItem('theme');
+
+        if (currentTheme) {
+            document.body.setAttribute('data-theme', currentTheme);
+            if (currentTheme === 'dark') {
+                themeIcon.className = 'fa-solid fa-sun';
+            }
+        }
+
+        themeToggle.addEventListener('click', (e) => {
+            e.preventDefault(); 
+            let targetTheme = 'light';
+            if (document.body.getAttribute('data-theme') !== 'dark') {
+                targetTheme = 'dark';
+            }
+
+            if (targetTheme === 'dark') {
+                document.body.setAttribute('data-theme', 'dark');
+                themeIcon.className = 'fa-solid fa-sun';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                document.body.removeAttribute('data-theme');
+                themeIcon.className = 'fa-solid fa-moon';
+                localStorage.setItem('theme', 'light');
+            }
+        });
+    </script>
 </body>
 </html>

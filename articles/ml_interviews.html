@@ -16,13 +16,16 @@
 
         <link rel="icon" type="image/png" href="../images/candle.jpg">
         <base target="_blank">
-    </head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Articles</title>
     <link rel="stylesheet" href="../styles/site.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body class="article-page">
+    <a href="#" id="theme-toggle" class="theme-toggle-btn" title="Toggle Dark/Light Mode" style="position: absolute; top: 20px; left: 20px;"><i id="theme-icon" class="fa-solid fa-moon"></i></a>
     <h1>How to prepare for Machine Learning (Research) Interviews?</h1>
     <i>Last edited: 24th December 2025</i>
     <p>
@@ -38,8 +41,8 @@
         the firm. To establish a bit of credibility, I received an offer from Mistral AI for an AI
         Scientist internship in their Palo Alto office.
     </p>
-    <h2 style="margin-bottom: 0px;">Table of Contents</h2>
-    <ul style="margin-bottom: 0%;">
+    <h2>Table of Contents</h2>
+    <ul>
         <li>
             <a href="#overview" target="_self">Overview / General advice</a>
         </li>
@@ -57,7 +60,7 @@
         </li>
     </ul>
 
-    <h3 id="overview" style="margin-bottom: 0px;">Overview / General advice</h3>
+    <h3 id="overview">Overview / General advice</h3>
     <p>
         These interviews typically follow a structured process, with the exact details varying by company.
         Usually, there will be a a <a href="#cv" target="_self">résumé screen</a>, followed by a couple of
@@ -73,7 +76,7 @@
         your background and preparation level.
     </p>
 
-    <h3 id="cv" style="margin-bottom: 0px;">CV / Résumé shortlisting</h3>
+    <h3 id="cv">CV / Résumé shortlisting</h3>
     <p>
         This is almost always the first step of the process, unless you apply with a referral.
         It is very hard to pinpoint what exactly makes a CV / Résumé standout, so I will instead describe
@@ -108,7 +111,7 @@
         significant time on the first go, do not rush it.
     </p>
 
-    <h3 id="ml_rounds" style="margin-bottom: 0px;">Machine Learning Rounds</h3>
+    <h3 id="ml_rounds">Machine Learning Rounds</h3>
     <p>
         I think that these rounds test your competency in three areas (at the time of writing):
         <ul>
@@ -162,7 +165,7 @@
         questions, and then also ask it to answer them.
     </p>
 
-    <h3 id="coding_rounds" style="margin-bottom: 0px;">Coding Rounds</h3>
+    <h3 id="coding_rounds">Coding Rounds</h3>
     <p>
         These rounds can involve both ML and the usual Data Structures and Algorithms (DSA) questions.
         First, I'll talk about DSA stuff, because it's straightforward to prepare for.
@@ -205,7 +208,7 @@
         etc. These are small things that can help you stand out.
     </p>
 
-    <h3 id="final_rounds" style="margin-bottom: 0px;">Final Rounds</h3>
+    <h3 id="final_rounds">Final Rounds</h3>
     <p>
         Final rounds are typically HR conversations to discuss logistics, compensation, and team placement.
         It is important to understand that, you must say that the current firm is your top choice! This is
@@ -216,5 +219,34 @@
         All the best!
     </p>
 
+
+    <!-- Script to Handle Theme Toggling -->
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const currentTheme = localStorage.getItem('theme');
+        if (currentTheme) {
+            document.body.setAttribute('data-theme', currentTheme);
+            if (currentTheme === 'dark') {
+                themeIcon.className = 'fa-solid fa-sun';
+            }
+        }
+        themeToggle.addEventListener('click', (e) => {
+            e.preventDefault(); 
+            let targetTheme = 'light';
+            if (document.body.getAttribute('data-theme') !== 'dark') {
+                targetTheme = 'dark';
+            }
+            if (targetTheme === 'dark') {
+                document.body.setAttribute('data-theme', 'dark');
+                themeIcon.className = 'fa-solid fa-sun';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                document.body.removeAttribute('data-theme');
+                themeIcon.className = 'fa-solid fa-moon';
+                localStorage.setItem('theme', 'light');
+            }
+        });
+    </script>
 </body>
 </html>

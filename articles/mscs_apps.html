@@ -16,13 +16,16 @@
 
         <link rel="icon" type="image/png" href="../images/candle.jpg">
         <base target="_blank">
-    </head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Articles</title>
     <link rel="stylesheet" href="../styles/site.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body class="article-page">
+    <a href="#" id="theme-toggle" class="theme-toggle-btn" title="Toggle Dark/Light Mode" style="position: absolute; top: 20px; left: 20px;"><i id="theme-icon" class="fa-solid fa-moon"></i></a>
     <h1>MS CS Applications in the USA</h1>
     <i>Last edited: 12th September 2025</i>
     <p>
@@ -39,8 +42,8 @@
         applying to multiple programs even if you are confident about your application.
     </p>
 
-    <h2 style="margin-bottom: 0px;">Table of Contents</h2>
-    <ul style="margin-bottom: 0%;">
+    <h2>Table of Contents</h2>
+    <ul>
         <li>
             <a href="#gre-and-toefl" target="_self">GRE & TOEFL</a>
         </li>
@@ -61,7 +64,7 @@
         </li>
     </ul>
 
-    <h3 id="gre-and-toefl" style="margin-bottom: 0px;">GRE & TOEFL</h3>
+    <h3 id="gre-and-toefl">GRE & TOEFL</h3>
     <p>
         When I applied to universities for Fall'25, most universities did not consider the GRE or had made it
         optional. This year (for Fall'26) even
@@ -89,7 +92,7 @@
         results in time.
     </p>
 
-    <h3 id="academics" style="margin-bottom: 0px;">Academics</h3>
+    <h3 id="academics">Academics</h3>
     <p>
         I strongly agree with DAGAP, and will only add one additional statement as a strategy. I would
         advise anyone to put their primary focus on their academics, and raise their GPA from whatever it
@@ -97,7 +100,7 @@
         any other aspect is a high risk high reward strategy, it only works sometimes.
     </p>
 
-    <h3 id="sop" style="margin-bottom: 0px;">Statement of Purpose</h3>
+    <h3 id="sop">Statement of Purpose</h3>
     <p>
         Again, I agree with DAGAP entirely; though due to that, I didn't pay a lot of attention to my SoP,
         and wrote it much later (only a few days before the deadline). I would advise anyone to start much
@@ -114,7 +117,7 @@
         want to work with, in most cases there would be muiltiple natural alignments.
     </p>
 
-    <h3 id="lors" style="margin-bottom: 0px;">Letters of Recommendation</h3>
+    <h3 id="lors">Letters of Recommendation</h3>
     <p>
         I strongly believe that after GPA, this is the field that is given the most importance, as this is
         entirely out of the applicant's control. I think DAGAP places most of its opinions correctly, I'm
@@ -127,7 +130,7 @@
         away from asking to highlight specific details, like TA-ship experience, etc.
     </p>
 
-    <h3 id="research" style="margin-bottom: 0px;">Research</h3>
+    <h3 id="research">Research</h3>
     <p>
         This was probably not a major factor in decisions at the time of DAGAP I think (it is a subsection
         not a section). However, the landscape has definitely shifted over the years. Much more for AI
@@ -149,7 +152,7 @@
         an article in itself, though I would suggest to start early, as early as possible.
     </p>
 
-    <h3 id="research" style="margin-bottom: 0px;">Work Experience</h3>
+    <h3 id="research">Work Experience</h3>
     <p>
         The advice in DAGAP is again quite apt, as a side note, I have seen people applying usually with
         2 years of experience. I would strongly advise anyone taking this path to get into some top company
@@ -160,5 +163,34 @@
         GDM posts the opening when its open. Top IIT / IISc professors are also more than willing to host
         students for a year or so.
     </p>
+
+    <!-- Script to Handle Theme Toggling -->
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const currentTheme = localStorage.getItem('theme');
+        if (currentTheme) {
+            document.body.setAttribute('data-theme', currentTheme);
+            if (currentTheme === 'dark') {
+                themeIcon.className = 'fa-solid fa-sun';
+            }
+        }
+        themeToggle.addEventListener('click', (e) => {
+            e.preventDefault(); 
+            let targetTheme = 'light';
+            if (document.body.getAttribute('data-theme') !== 'dark') {
+                targetTheme = 'dark';
+            }
+            if (targetTheme === 'dark') {
+                document.body.setAttribute('data-theme', 'dark');
+                themeIcon.className = 'fa-solid fa-sun';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                document.body.removeAttribute('data-theme');
+                themeIcon.className = 'fa-solid fa-moon';
+                localStorage.setItem('theme', 'light');
+            }
+        });
+    </script>
 </body>
 </html>

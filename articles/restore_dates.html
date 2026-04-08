@@ -16,13 +16,16 @@
 
         <link rel="icon" type="image/png" href="../images/candle.jpg">
         <base target="_blank">
-    </head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Articles</title>
     <link rel="stylesheet" href="../styles/site.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body class="article-page">
+    <a href="#" id="theme-toggle" class="theme-toggle-btn" title="Toggle Dark/Light Mode" style="position: absolute; top: 20px; left: 20px;"><i id="theme-icon" class="fa-solid fa-moon"></i></a>
     <h1>Restoring dates for images</h1>
     <i>Last edited: 19th October 2025</i>
     <p>
@@ -39,8 +42,8 @@
         connections, check those if you don't get a notification from your phone when you connect the OTG.
     </p>
 
-    <h2 style="margin-bottom: 0px;">Steps</h2>
-    <ol style="margin-bottom: 0%;" start="0">
+    <h2>Steps</h2>
+    <ol start="0">
         <li>
             <a href="#basecase" target="_self">Base Case</a>
         </li>
@@ -58,7 +61,7 @@
         </li>
     </ol>
 
-    <h3 id="basecase" style="margin-bottom: 0px;">Base Case</h3>
+    <h3 id="basecase">Base Case</h3>
     <p>
         First off, zipping and moving always preserves the all dates. This is the first thing you
         should try. Some phones even allow for compression <i>directly on the OTG</i> -- select all folders
@@ -73,7 +76,7 @@
         further steps.
     </p>
 
-    <h3 id="segregate" style="margin-bottom: 0px;">Step 1: Segregate</h3>
+    <h3 id="segregate">Step 1: Segregate</h3>
     <p>
         All photos do not contain restorable date data, i.e.,
         <a href="https://en.wikipedia.org/wiki/Exif">EXIF</a>, for e.g., for a picky person like me, I want
@@ -95,7 +98,7 @@
         contain, EXIF and which don't.
     </p>
 
-    <h3 id="move" style="margin-bottom: 0px;">Step 2. Move</h3>
+    <h3 id="move">Step 2. Move</h3>
     <p>
         If the EXIF field doesn't exist, the <i>only</i> way to preserve dates is to move with zipping.
         These individual folders shouldn't be too big as to prevent zipping and moving. In case they are,
@@ -113,7 +116,7 @@
         </code>
     </pre>
 
-    <h3 id="com" style="margin-bottom: 0px;">Step 3. com. stuff</h3>
+    <h3 id="com">Step 3. com. stuff</h3>
     <p>
         Some apps, like whatsapp, store images, audio, video, etc. in a separate location inside the
         Android folder (usually com.&lt;app name&gt;). In my case, it was only WhatsApp here. I'm not sure if
@@ -396,5 +399,34 @@ if __name__ == "__main__":
         </details>
     </p>
 
+
+    <!-- Script to Handle Theme Toggling -->
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const currentTheme = localStorage.getItem('theme');
+        if (currentTheme) {
+            document.body.setAttribute('data-theme', currentTheme);
+            if (currentTheme === 'dark') {
+                themeIcon.className = 'fa-solid fa-sun';
+            }
+        }
+        themeToggle.addEventListener('click', (e) => {
+            e.preventDefault(); 
+            let targetTheme = 'light';
+            if (document.body.getAttribute('data-theme') !== 'dark') {
+                targetTheme = 'dark';
+            }
+            if (targetTheme === 'dark') {
+                document.body.setAttribute('data-theme', 'dark');
+                themeIcon.className = 'fa-solid fa-sun';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                document.body.removeAttribute('data-theme');
+                themeIcon.className = 'fa-solid fa-moon';
+                localStorage.setItem('theme', 'light');
+            }
+        });
+    </script>
 </body>
 </html>

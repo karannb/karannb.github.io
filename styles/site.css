@@ -1,175 +1,298 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&display=swap');
+
+:root {
+    /* A soothing, earthy oatmeal/linen tone that is distinct from white */
+    --bg-color: #EFEBE4; 
+    --primary-accent: teal; 
+    --secondary-accent: gray; 
+    --text-main: #1f1f1f; 
+    --text-light: #4A4C48; 
+    --border-color: #D2D6DC;
+    --heading-color: #000;
+}
+
+[data-theme="dark"] {
+    --bg-color: #1E1F22; /* Soft deep charcoal, very easy on the eyes */
+    --primary-accent: #4fd1c5; /* Clear, bright teal for dark backgrounds */
+    --secondary-accent: #a0aec0; /* Subdued gray */
+    --text-main: #E5E7EB; /* Crisp off-white text for body */
+    --text-light: #9CA3AF; /* Muted gray for meta/icons */
+    --border-color: #374151; /* Dark border separator */
+    --heading-color: #F9FAFB; /* Pure bright text for headings */
+}
+
+/* Smooth transition for theme colors */
 body {
+    transition: background-color 0.4s ease, color 0.4s ease;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    /* Set body text to Lora so it matches the headings' classic/royal feel */
+    font-family: 'Lora', serif;
+    line-height: 1.7;
+    font-size: 1rem;
+    font-weight: 400;
     margin: 22px 26px;
-    color: #1f1f1f;
-    /* Font options — uncomment ONE line to try */
-    font-family: "Avenir Next", Avenir, "Segoe UI", Helvetica, Arial, sans-serif;
-    /* font-family: Georgia, "Times New Roman", Times, serif; */
-    /* font-family: "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif; */
-    line-height: 1.46;
-    letter-spacing: 0.01em;
-    word-spacing: 0.03em;
-    text-rendering: optimizeLegibility;
 }
 
-/* Shared typography */
-h1,
-h2 {
-    font-weight: 500;
-    margin: 0 0 0.35rem;
-    letter-spacing: 0;
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-h2 {
-    margin-top: 1.75rem;
-}
-
-p {
-    margin: 0.65rem 0;
-}
-
-/* Hyperlink modification */
+/* Ensure links blend properly */
 a {
-    color: teal;
+    color: var(--primary-accent);
     text-decoration: none;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
 }
 
 a:hover {
-    color: gray;
+    color: var(--secondary-accent);
 }
 
-/* Erdos Number chain */
-.special-hover {
-    position: relative;
-    font: inherit;
-    color: inherit;
-    text-decoration: underline;
-    text-decoration-style: dashed;
-    text-decoration-thickness: 1px;
-    text-decoration-color: rgba(40, 70, 70, 0.45);
-    text-underline-offset: 2px;
-    cursor: pointer;
+p a, li a {
+    border-bottom: 1px solid transparent;
 }
 
-.tooltip {
-    position: absolute;
-    top: 50%;
-    left: calc(100% + 10px);
-    transform: translateY(-50%) translateX(6px);
-    background: rgba(20, 20, 20, 0.92);
-    color: #f6f6f6;
-    padding: 0.3rem 0.48rem;
-    border-radius: 6px;
-    white-space: nowrap;
-    width: max-content;
-    max-width: none;
-    font-size: 0.9rem;
-    letter-spacing: 0;
-    line-height: 1.2;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.2s ease, transform 0.2s ease;
-    z-index: 20;
+p a:hover, li a:hover {
+    border-bottom: 1px solid var(--secondary-accent);
 }
 
-.special-hover:hover .tooltip {
-    opacity: 1;
-    transform: translateY(-50%) translateX(0);
+h1, h2 {
+    font-family: 'Lora', serif;
+    color: var(--heading-color);
+    font-weight: 500;
+    transition: color 0.4s ease;
 }
 
-.special-hover:focus .tooltip,
-.special-hover:focus-visible .tooltip {
-    opacity: 1;
-    transform: translateY(-50%) translateX(0);
+h1 {
+    font-size: 3rem;
+    letter-spacing: -0.02em;
+    margin-bottom: 24px;
+    text-align: center;
 }
 
-/* Home page */
-.page {
-    max-width: 900px;
+h2 {
+    font-size: 1.75rem;
+    font-weight: 400;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    text-align: center;
 }
 
-.intro-flex {
+/* Home Page Container layout */
+.container {
+    max-width: 800px;
+    margin: 10vh auto;
+    padding: 0 24px;
     display: flex;
-    gap: 1.35rem;
-    align-items: flex-start;
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
 }
 
-.intro-flex img {
-    width: 210px;
-    height: auto;
-    flex: 0 0 auto;
+/* Tooltip & special hover behavior */
+.name-reveal, .special-hover {
+    position: relative;
     cursor: pointer;
-}
-
-.intro-flex-content {
-    flex: 1 1 380px;
-    min-width: 320px;
-}
-
-.photo-note {
-    margin-top: 0.45rem;
-    font-size: 0.95rem;
-    color: #4a4a4a;
-}
-
-.brief-past {
-    max-width: 900px;
+    border-bottom: 1px dotted rgba(40, 70, 70, 0.45);
+    text-decoration: none;
+    display: inline-block;
 }
 
 .name-reveal {
-    position: relative;
-    display: inline-block;
-    font: inherit;
-    color: inherit;
-    text-decoration: underline;
-    text-decoration-style: dashed;
-    text-decoration-thickness: 1px;
-    text-decoration-color: rgba(40, 70, 70, 0.35);
-    text-underline-offset: 3px;
     cursor: default;
 }
 
-.name-reveal:focus,
-.name-reveal:focus-visible {
-    outline: none;
+.tooltip {
+    visibility: hidden;
+    background: rgba(20, 20, 20, 0.92);
+    color: #f6f6f6;
+    padding: 4px 10px;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 20;
+    top: 50%;
+    left: calc(100% + 10px);
+    transform: translateY(-50%) translateX(6px);
+    opacity: 0;
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+    font-size: 0.9rem;
+    font-weight: 400;
+    font-family: 'Inter', sans-serif;
+    white-space: nowrap;
+    letter-spacing: normal;
 }
 
-.name-reveal:hover .tooltip,
-.name-reveal:focus .tooltip,
-.name-reveal:focus-visible .tooltip {
+.name-reveal:hover .tooltip, .special-hover:hover .tooltip {
+    visibility: visible;
     opacity: 1;
     transform: translateY(-50%) translateX(0);
 }
 
-.name-reveal .tooltip {
-    font-family: "Noto Sans Gujarati", "Shruti", "Nirmala UI", inherit;
+[data-theme="dark"] .tooltip {
+    background: rgba(220, 220, 220, 0.95);
+    color: #1f1f1f;
 }
 
-a i {
-    font-size: 1.4rem;
-    margin: 0 4px;
+[data-theme="dark"] .name-reveal,
+[data-theme="dark"] .special-hover {
+    border-bottom: 1px dotted rgba(200, 200, 200, 0.45);
 }
 
-/* Article pages */
-.article-page {
-    margin: 22px 20% 50px;
+/* Base Content Blocks (for index) */
+.content-section {
+    width: 100%;
+    max-width: 680px;
     text-align: justify;
+    font-size: 1rem;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.content-section p {
+    margin-bottom: 20px;
+}
+
+/* Contact Block */
+.contact-block {
+    margin: 30px 0;
+    width: 100%;
+    max-width: 680px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.email-text {
+    font-weight: 500;
+    color: var(--text-main);
+    font-size: 1.1rem;
+    margin-bottom: 16px;
+    letter-spacing: 0.02em;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social-links a {
+    color: var(--text-light);
+    font-size: 1.35rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+    border-bottom: none;
+}
+
+.social-links a:hover {
+    color: var(--primary-accent);
+    transform: translateY(-2px);
+    border-bottom: none;
+}
+
+/* Single standard separator width */
+.separator-line {
+    width: 100%;
+    max-width: 680px;
+    height: 1px;
+    background-color: var(--border-color);
+    margin: 0 auto;
+    border: none;
+    transition: background-color 0.4s ease;
+}
+
+/* Sub-page Specific Styles */
+.etc-content {
+    max-width: 950px;
+    margin: 40px auto;
+    text-align: justify; /* Ensure etc.html is justified too */
+    font-size: 1rem;
+    padding: 0 40px;
+}
+
+.etc-content ul {
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+.etc-content li {
+    margin-bottom: 8px;
+    line-height: 1.6;
+}
+
+.theme-toggle-btn {
+    display: inline-block;
+    font-size: 1.35rem;
+    color: var(--text-light);
+    transition: color 0.3s;
+    margin-bottom: 20px;
+}
+
+.theme-toggle-btn:hover {
+    color: var(--primary-accent);
+}
+
+/* Better Article Page Typography and Spacing */
+.article-page {
+    margin: 40px auto 80px;
+    max-width: 950px;
+    padding: 0 40px;
+    text-align: justify;
+    font-size: 1rem;
+}
+
+.article-page h1 {
+    font-size: 2.4rem;
+    margin-bottom: 0.5rem;
+    color: var(--heading-color);
+}
+
+/* Keep the article dates slightly muted without affecting italicized text inside paragraphs/lists */
+.article-page > i {
+    color: var(--text-light);
+    display: block;
+    margin-bottom: 1.5rem;
+}
+
+.article-page h2 {
+    font-size: 1.6rem;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
+    color: var(--heading-color);
+}
+
+.article-page h3 {
+    font-size: 1.3rem;
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+    color: var(--heading-color);
 }
 
 .article-page p {
-    margin-bottom: 5px;
+    margin-bottom: 1.25rem;
+    line-height: 1.7;
 }
 
-.article-page pre {
-    margin-bottom: 0;
+.article-page ul,
+.article-page ol {
+    margin-top: 0.5rem;
+    margin-bottom: 1.5rem;
+    padding-left: 2rem; /* Fixes bullets */
+}
+
+.article-page li {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
 }
 
 @media (max-width: 900px) {
     .article-page {
-        margin: 16px;
-    }
-
-    .intro-flex-content {
-        min-width: 0;
+        margin-top: 60px;
+        padding: 0 16px;
     }
 }

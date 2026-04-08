@@ -16,13 +16,16 @@
 
         <link rel="icon" type="image/png" href="../images/candle.jpg">
         <base target="_blank">
-    </head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Articles</title>
     <link rel="stylesheet" href="../styles/site.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body class="article-page">
+    <a href="#" id="theme-toggle" class="theme-toggle-btn" title="Toggle Dark/Light Mode" style="position: absolute; top: 20px; left: 20px;"><i id="theme-icon" class="fa-solid fa-moon"></i></a>
     <h1>Setting up LaTeX locally (Mac)</h1>
     <i>Last edited: 12th September 2025</i>
     <p>
@@ -31,8 +34,8 @@
         <a href="#texcompile" target="_self"><code>texcompile</code></a> is too useful to not share.
     </p>
 
-    <h2 style="margin-bottom: 0px;">Table of Contents</h2>
-    <ul style="margin-bottom: 0%;">
+    <h2>Table of Contents</h2>
+    <ul>
         <li>
             <a href="#why" target="_self">Why?</a>
         </li>
@@ -44,7 +47,7 @@
         </li>
     </ul>
 
-    <h3 id="why" style="margin-bottom: 0px;">Why?</h3>
+    <h3 id="why">Why?</h3>
     <p>
         First, this article is necessary from my experience in BITS. Basically no one uses LaTeX locally.
         To be fair it's also not instrumental for most people, for e.g., assignments are not required to be
@@ -67,7 +70,7 @@
         happens right before some deadline (highly unlikely), it could be a pretty nasty experience.
     </p>
 
-    <h3 id="setup" style="margin-bottom: 0px;">Setup</h3>
+    <h3 id="setup">Setup</h3>
     <p>
         The setup is quite simple, just a single command to install <code>basictex</code>.
         <pre>
@@ -105,7 +108,7 @@
         to update all the packages.
     </p>
 
-    <h3 id="texcompile" style="margin-bottom: 0px;"><code>texcompile</code></h3>
+    <h3 id="texcompile"><code>texcompile</code></h3>
     <p>
         I saved the following script and made it an executable, and then sourced it in my
         <code>.zshrc</code>.
@@ -354,5 +357,34 @@ texcompile() {
         </pre>
         This will be verbose and show the error.
     </p>
+
+    <!-- Script to Handle Theme Toggling -->
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const currentTheme = localStorage.getItem('theme');
+        if (currentTheme) {
+            document.body.setAttribute('data-theme', currentTheme);
+            if (currentTheme === 'dark') {
+                themeIcon.className = 'fa-solid fa-sun';
+            }
+        }
+        themeToggle.addEventListener('click', (e) => {
+            e.preventDefault(); 
+            let targetTheme = 'light';
+            if (document.body.getAttribute('data-theme') !== 'dark') {
+                targetTheme = 'dark';
+            }
+            if (targetTheme === 'dark') {
+                document.body.setAttribute('data-theme', 'dark');
+                themeIcon.className = 'fa-solid fa-sun';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                document.body.removeAttribute('data-theme');
+                themeIcon.className = 'fa-solid fa-moon';
+                localStorage.setItem('theme', 'light');
+            }
+        });
+    </script>
 </body>
 </html>
