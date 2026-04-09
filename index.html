@@ -102,37 +102,6 @@
     </div>
 
     <!-- Script to Handle Theme Toggling -->
-    <script>
-        const themeToggle = document.getElementById('theme-toggle');
-        const themeIcon = document.getElementById('theme-icon');
-        const currentTheme = localStorage.getItem('theme');
-
-        // Restore saved theme on page load
-        if (currentTheme) {
-            document.body.setAttribute('data-theme', currentTheme);
-            if (currentTheme === 'dark') {
-                themeIcon.className = 'fa-solid fa-sun';
-            }
-        }
-
-        themeToggle.addEventListener('click', (e) => {
-            e.preventDefault(); // Prevent jump-to-top
-            
-            let targetTheme = 'light';
-            if (document.body.getAttribute('data-theme') !== 'dark') {
-                targetTheme = 'dark';
-            }
-
-            if (targetTheme === 'dark') {
-                document.body.setAttribute('data-theme', 'dark');
-                themeIcon.className = 'fa-solid fa-sun';
-                localStorage.setItem('theme', 'dark');
-            } else {
-                document.body.removeAttribute('data-theme');
-                themeIcon.className = 'fa-solid fa-moon';
-                localStorage.setItem('theme', 'light');
-            }
-        });
-    </script>
+    <script src="scripts/theme.js"></script>
 </body>
 </html>
