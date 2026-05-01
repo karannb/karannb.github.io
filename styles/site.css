@@ -9,7 +9,6 @@
     --text-light: #4A4C48; 
     --border-color: #D2D6DC;
     --heading-color: #000;
-    --highlight-accent: #d97706; /* Warm amber/orange to contrast with teal */
 }
 
 [data-theme="dark"] {
@@ -20,7 +19,6 @@
     --text-light: #9CA3AF; /* Muted gray for meta/icons */
     --border-color: #374151; /* Dark border separator */
     --heading-color: #F9FAFB; /* Pure bright text for headings */
-    --highlight-accent: #fbbf24; /* Bright amber for dark mode */
 }
 
 /* Smooth transition for theme colors */
@@ -50,15 +48,6 @@ a {
 }
 
 a:hover {
-    color: var(--secondary-accent);
-}
-
-a.highlight-link {
-    color: var(--highlight-accent);
-    font-weight: 500;
-}
-
-a.highlight-link:hover {
     color: var(--secondary-accent);
 }
 
