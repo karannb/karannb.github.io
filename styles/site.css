@@ -26,8 +26,7 @@ body {
     transition: background-color 0.4s ease, color 0.4s ease;
     background-color: var(--bg-color);
     color: var(--text-main);
-    /* Set body text to Lora so it matches the headings' classic/royal feel */
-    font-family: 'Lora', serif;
+    font-family: Verdana, Geneva, sans-serif;
     line-height: 1.7;
     font-size: 1rem;
     font-weight: 400;
@@ -60,7 +59,7 @@ p a:hover, li a:hover {
 }
 
 h1, h2 {
-    font-family: 'Lora', serif;
+    font-family: Verdana, Geneva, sans-serif;
     color: var(--heading-color);
     font-weight: 500;
     transition: color 0.4s ease;
@@ -119,7 +118,7 @@ h2 {
     transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
     font-size: 0.9rem;
     font-weight: 400;
-    font-family: 'Inter', sans-serif;
+    font-family: Verdana, Geneva, sans-serif;
     white-space: nowrap;
     letter-spacing: normal;
 }
