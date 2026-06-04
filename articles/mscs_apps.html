@@ -11,7 +11,10 @@
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
 
-        gtag('config', 'G-FZYHPBJ2NN');
+        // Only send data if the hostname matches the actual domain
+        if (window.location.hostname === 'karannb.github.io') {
+            gtag('config', 'G-FZYHPBJ2NN');
+        }
         </script>
 
         <link rel="icon" type="image/png" href="../images/candle.jpg">
