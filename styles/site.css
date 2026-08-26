@@ -21,9 +21,11 @@
     --heading-color: #F9FAFB; /* Pure bright text for headings */
 }
 
-/* Smooth transition for theme colors */
+/* The theme flip is instant. The only animated theme change is the rare
+   block-dissolve easter egg in theme.js, which does its own thing: it masks a
+   frozen clone of the old theme over an already-swapped page, so it neither
+   needs nor wants a CSS transition here. */
 body {
-    transition: background-color 0.4s ease, color 0.4s ease;
     background-color: var(--bg-color);
     color: var(--text-main);
     font-family: Verdana, Geneva, sans-serif;
@@ -39,30 +41,20 @@ body {
     padding: 0;
 }
 
-/* Ensure links blend properly */
+/* Ensure links blend properly. Hover states are deliberately instant. */
 a {
     color: var(--primary-accent);
     text-decoration: none;
-    transition: color 0.3s ease, border-bottom 0.3s ease;
 }
 
 a:hover {
     color: var(--secondary-accent);
 }
 
-p a, li a {
-    border-bottom: 1px solid transparent;
-}
-
-p a:hover, li a:hover {
-    border-bottom: 1px solid var(--secondary-accent);
-}
-
 h1, h2 {
     font-family: Verdana, Geneva, sans-serif;
     color: var(--heading-color);
     font-weight: 500;
-    transition: color 0.4s ease;
 }
 
 h1 {
@@ -103,30 +95,38 @@ h2 {
     cursor: default;
 }
 
+/* Sits centred above the trigger and wraps within a capped width. It used to
+   sit off to the right as a single nowrap line, which pushed the page ~680px
+   wider than the viewport -- that is what produced the horizontal scrollbar,
+   and it also ran the longer tooltips off the right edge when shown. */
 .tooltip {
     visibility: hidden;
     background: rgba(20, 20, 20, 0.92);
     color: #f6f6f6;
-    padding: 4px 10px;
+    padding: 6px 10px;
     border-radius: 6px;
     position: absolute;
     z-index: 20;
-    top: 50%;
-    left: calc(100% + 10px);
-    transform: translateY(-50%) translateX(6px);
+    bottom: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%);
+    width: max-content;
+    max-width: min(300px, 80vw);
+    white-space: normal;
+    text-align: center;
     opacity: 0;
-    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+    transition: opacity 0.15s ease, visibility 0.15s;
     font-size: 0.9rem;
     font-weight: 400;
     font-family: Verdana, Geneva, sans-serif;
-    white-space: nowrap;
+    line-height: 1.45;
     letter-spacing: normal;
 }
 
-.name-reveal:hover .tooltip, .special-hover:hover .tooltip {
+.name-reveal:hover .tooltip, .special-hover:hover .tooltip,
+.name-reveal:focus .tooltip, .special-hover:focus .tooltip {
     visibility: visible;
     opacity: 1;
-    transform: translateY(-50%) translateX(0);
 }
 
 [data-theme="dark"] .tooltip {
@@ -137,6 +137,18 @@ h2 {
 [data-theme="dark"] .name-reveal,
 [data-theme="dark"] .special-hover {
     border-bottom: 1px dotted rgba(200, 200, 200, 0.45);
+}
+
+/* Narrow windows: a centred tooltip on a trigger near the right edge of the
+   column still spills past the viewport, so hang it off the trigger's right
+   edge and let it grow leftwards instead. */
+@media (max-width: 1000px) {
+    .tooltip {
+        left: auto;
+        right: 0;
+        transform: none;
+        max-width: min(280px, 70vw);
+    }
 }
 
 /* Base Content Blocks (for index) */
@@ -180,14 +192,10 @@ h2 {
 .social-links a {
     color: var(--text-light);
     font-size: 1.35rem;
-    transition: color 0.3s ease, transform 0.3s ease;
-    border-bottom: none;
 }
 
 .social-links a:hover {
     color: var(--primary-accent);
-    transform: translateY(-2px);
-    border-bottom: none;
 }
 
 /* Single standard separator width */
@@ -198,7 +206,6 @@ h2 {
     background-color: var(--border-color);
     margin: 0 auto;
     border: none;
-    transition: background-color 0.4s ease;
 }
 
 /* Sub-page Specific Styles */
@@ -225,7 +232,6 @@ h2 {
     display: inline-block;
     font-size: 1.35rem;
     color: var(--text-light);
-    transition: color 0.3s;
     margin-bottom: 20px;
 }
 
@@ -287,6 +293,13 @@ h2 {
 .article-page li {
     margin-bottom: 0.5rem;
     line-height: 1.6;
+}
+
+/* Long script lines were being clipped and unreachable on narrower windows --
+   let the block scroll inside itself instead of spilling past the column. */
+.article-page pre {
+    max-width: 100%;
+    overflow-x: auto;
 }
 
 @media (max-width: 900px) {
