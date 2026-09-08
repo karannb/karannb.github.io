@@ -239,6 +239,28 @@ h2 {
     color: var(--primary-accent);
 }
 
+/* Pins the toggle to the viewport corner on every page. Fixed, not absolute,
+   so it stays put while the page scrolls. The toggle occupies x = 20..36, and
+   every content column starts further right than that, so it covers no text. */
+.theme-toggle-corner {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    margin-bottom: 0;
+    z-index: 10;
+}
+
+/* ...except below 900px, where .article-page and .cv-page drop to 16px of
+   padding and run edge to edge -- their text would then scroll under a pinned
+   toggle. Let it scroll away with the page instead. .container and
+   .etc-content keep their gutters at every width, so they stay pinned. */
+@media (max-width: 900px) {
+    .article-page > .theme-toggle-corner,
+    .cv-page > .theme-toggle-corner {
+        position: absolute;
+    }
+}
+
 /* Better Article Page Typography and Spacing */
 .article-page {
     margin: 40px auto 80px;
@@ -306,5 +328,162 @@ h2 {
     .article-page {
         margin-top: 60px;
         padding: 0 16px;
+    }
+}
+
+/* ---------- CV page (cv.html) ---------- */
+.cv-page {
+    max-width: 780px;
+    margin: 40px auto 80px;
+    padding: 0 40px;
+    text-align: left;
+    font-size: 1rem;
+}
+
+
+.cv-page h2 {
+    font-size: 1.3rem;
+    font-weight: 500;
+    text-align: left;
+    margin-top: 2.75rem;
+    margin-bottom: 1.4rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.cv-intro {
+    color: var(--text-main);
+    margin-bottom: 2.5rem;
+    line-height: 1.6;
+}
+
+.cv-entry {
+    display: grid;
+    grid-template-columns: 64px 1fr;
+    gap: 18px;
+    align-items: start;
+    margin-bottom: 1.75rem;
+}
+
+/* Logos sit straight on the page -- no tile, no border. The source images
+   are transparent, so the page background shows through. */
+.cv-logo {
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cv-logo img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+
+.cv-role {
+    font-weight: 500;
+    color: var(--heading-color);
+    line-height: 1.4;
+}
+
+.cv-meta {
+    color: var(--text-light);
+    font-size: 0.85rem;
+    margin-top: 1px;
+}
+
+.cv-note {
+    margin-top: 6px;
+    line-height: 1.65;
+}
+
+/* Leading word on a detail line -- "Coursework", "Teaching". */
+.cv-label {
+    color: var(--text-light);
+    margin-right: 2px;
+}
+
+/* Quiet aside in the intro line. */
+.cv-aside {
+    color: var(--text-light);
+}
+
+/* Coursework is long and secondary, so it folds away by default. */
+.cv-details {
+    margin-top: 8px;
+}
+
+.cv-details summary {
+    cursor: pointer;
+    color: var(--text-light);
+    width: fit-content;
+}
+
+.cv-details summary:hover {
+    color: var(--primary-accent);
+}
+
+.cv-details > div {
+    margin-top: 6px;
+    line-height: 1.65;
+}
+
+/* Teaching, one course per line. */
+.cv-ta {
+    margin-top: 8px;
+    padding-left: 1.15rem;
+    line-height: 1.7;
+}
+
+.cv-ta li {
+    margin-bottom: 1px;
+}
+
+.cv-list {
+    list-style: none;
+}
+
+.cv-list li {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 16px;
+    align-items: baseline;
+    padding: 9px 0;
+    border-bottom: 1px solid var(--border-color);
+    line-height: 1.6;
+}
+
+.cv-list li:last-child {
+    border-bottom: none;
+}
+
+.cv-when {
+    color: var(--text-light);
+    font-size: 0.85rem;
+    white-space: nowrap;
+}
+
+@media (max-width: 900px) {
+    .cv-page {
+        margin-top: 60px;
+        padding: 0 16px;
+    }
+
+    .cv-entry {
+        grid-template-columns: 48px 1fr;
+        gap: 14px;
+    }
+
+    .cv-logo {
+        width: 48px;
+        height: 48px;
+    }
+
+    /* Stack the award date under its line rather than squeezing both. */
+    .cv-list li {
+        grid-template-columns: 1fr;
+        gap: 2px;
     }
 }
